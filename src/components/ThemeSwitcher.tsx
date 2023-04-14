@@ -11,7 +11,7 @@ export function ThemeSwitcher(){
 
   return (
     <DarkModeSwitch 
-      checked={colorTheme === 'dark'}
+      checked={colorTheme === 'light'}
       onChange={toogleTheme}
       size={30}
     />
