@@ -64,28 +64,31 @@ module.exports = {
             transform: 'translateY(0)'
           },
         },
-        slideRightAndFade: {
+        downSize: {
           from: {
-            opacity: 0,
-            transform: 'translateX(-2px)'
+            // opacity: 0,
+            width: '0%',
           },
           to: {
-            opacity: 1,
-            transform: 'translateX(0)'
+            // opacity: 1,
+            width: '50%',
           },
         },
+
       },
       animation: {
         slideDownAndFade: 'slideDownAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
         slideLeftAndFade: 'slideLeftAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
         slideUpAndFade: 'slideUpAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
         slideRightAndFade: 'slideRightAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
+        downSize: 'downSize .2s linear'
       },
+      transitionProperty: {
+        width: "width"
+      }
     },
-  },
-  extend: {
     fontFamily: {
-      cursive: 'Comfortaa, cursive'
+      sans: ['"Comfortaa"', 'cursive'],
     }
   },
   plugins: [],

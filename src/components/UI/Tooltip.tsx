@@ -1,7 +1,8 @@
+import { ReactNode } from 'react';
 import * as TooltipRadix from '@radix-ui/react-tooltip';
 
 interface TooltipProps {
-  children: JSX.Element,
+  children: ReactNode,
   tooltip: JSX.Element | string
 }
 
