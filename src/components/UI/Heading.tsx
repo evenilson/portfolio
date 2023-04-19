@@ -17,9 +17,9 @@ export function Heading({ size = 'md', children, asChild = false, className }: H
       className={clsx(
         'font-bold',
         {
-          'text-lg': size === 'sm',
-          'text-xl': size === 'md',
-          'text-2xl': size === 'lg',
+          'text-xl': size === 'sm',
+          'text-2xl': size === 'md',
+          'text-3xl': size === 'lg',
         },
         className
       )}

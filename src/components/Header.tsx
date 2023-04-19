@@ -91,7 +91,7 @@ export function Header({headerRef, homeRef, skillsRef, projectsRef, servicesRef}
         'dark:bg-black-600 dark:shadow-none shadow-sm bg-white-400': scrollPosition > 0
       }
     )}>
-      <nav className="w-full py-5 my-0 mx-auto flex items-center justify-between container" >
+      <nav className="w-full py-5 my-0 mx-auto flex items-center justify-between max-w-5xl" >
         <div className="flex items-center justify-between gap-6" onClick={hadleActiveSection}>
           {
             sections.map(({id, name, positionTop, positionBottom}) => {

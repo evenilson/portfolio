@@ -89,6 +89,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['"Comfortaa"', 'cursive'],
+      mono: ['"Fira Code"', 'monospace']
     }
   },
   plugins: [],
