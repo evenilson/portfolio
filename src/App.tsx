@@ -51,7 +51,7 @@ function App() {
         </div>
         <img src={evenilsonImg} alt="" className="w-96" />
       </section>
-      <section className="pt-20 my-0 mx-auto max-w-5xl flex items-center justify-between" id="skills" ref={skillsRef}>
+      <section className="pt-20 my-0 mx-auto max-w-5xl" id="skills" ref={skillsRef}>
         <Heading size="lg">
           Habilidades
         </Heading>
