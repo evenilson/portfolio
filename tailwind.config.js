@@ -4,6 +4,7 @@ module.exports = {
     './src/**/*.tsx',
     './index.html'
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -14,10 +15,10 @@ module.exports = {
           800: '#011013',
         },
         white: {
-          400: '#D0E4E9',
-          600: '#CADDE1',
-          700: '#B6D0D6',
-          800: '#A1BDC3'
+          400: '#F0F5F6',
+          600: '#E0ECEE',
+          700: '#D2DDDF',
+          800: '#C4CED0'
         },
         blue: {
           400: '#54D6F2',
@@ -31,17 +32,64 @@ module.exports = {
           700: '#ECB254',
           800: '#FCA311'
         }
+      },
+      keyframes: {
+        slideDownAndFade: {
+          from: {
+            opacity: 0,
+            transform: 'translateY(-2px)'
+          },
+          to: {
+            opacity: 1,
+            transform: 'translateY(0)'
+          },
+        },
+        slideLeftAndFade: {
+          from: {
+            opacity: 0,
+            transform: 'translateX(2px)'
+          },
+          to: {
+            opacity: 1,
+            transform: 'translateX(0)'
+          },
+        },
+        slideUpAndFade: {
+          from: {
+            opacity: 0,
+            transform: 'translateY(2px)'
+          },
+          to: {
+            opacity: 1,
+            transform: 'translateY(0)'
+          },
+        },
+        downSize: {
+          from: {
+            // opacity: 0,
+            width: '0%',
+          },
+          to: {
+            // opacity: 1,
+            width: '50%',
+          },
+        },
 
       },
-
-      gridTemplateRows: {
-        7: 'repeat(7, minmax(0, 1fr))'
+      animation: {
+        slideDownAndFade: 'slideDownAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
+        slideLeftAndFade: 'slideLeftAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
+        slideUpAndFade: 'slideUpAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
+        slideRightAndFade: 'slideRightAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
+        downSize: 'downSize .2s linear'
+      },
+      transitionProperty: {
+        width: "width"
       }
     },
-  },
-  extend: {
     fontFamily: {
-      cursive: 'Comfortaa, cursive'
+      sans: ['"Comfortaa"', 'cursive'],
+      mono: ['"Fira Code"', 'monospace']
     }
   },
   plugins: [],
