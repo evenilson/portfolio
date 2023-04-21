@@ -10,7 +10,7 @@ export function Tooltip({ children, tooltip }: TooltipProps) {
   return (
     <TooltipRadix.Provider>
       <TooltipRadix.Root
-        delayDuration={100}
+        delayDuration={50}
       >
         <TooltipRadix.Trigger asChild>
           {children}

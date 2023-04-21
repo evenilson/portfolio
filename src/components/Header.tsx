@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { Envelope } from "phosphor-react";
 import * as Separator from '@radix-ui/react-separator';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useScrollPosition from "../hooks/useScrollPosition";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Button } from "./UI/Button";

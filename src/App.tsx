@@ -5,11 +5,13 @@ import { Heading } from "./components/UI/Heading"
 import { Text } from "./components/UI/Text"
 
 import { Button } from "./components/UI/Button"
-import { DownloadSimple, Eye, Eyedropper, EyeSlash, FilePdf } from "phosphor-react"
+import { FilePdf } from "phosphor-react"
 
 import evenilsonImg from './assets/img/evenilson.png';
 
 import cv from './assets/CV - EVENILSON.pdf';
+import { SectionCard } from "./components/SectionCard"
+import { TypeWriter } from "./components/Typewriter"
 
 function App() {
 
@@ -25,11 +27,11 @@ function App() {
       <SocialMediasArea />
       <section className="pt-20 my-0 mx-auto max-w-5xl flex items-center justify-between" id="home" ref={homeRef}>
         <div className="">
-          <Text className="text-[2rem] font-light block" size="none">
+          <Text className="text-[2rem] font-light block leading-none" size="none">
             Olá, eu sou
           </Text>
-          <Text className="font-mono text-[4rem] font-bold uppercase block w-fit" size="none">
-            Evenilson L.
+          <Text className="font-mono text-[4rem] font-bold block tracking-tight w-fit" size="none">
+            <TypeWriter text="Evenilson Liandro" delay={200} withMarket />
           </Text>
           <Text className="font-light block max-w-[30rem]" size="sm">
               Iniciei na programação aos meus 15 anos, onde tive os 
@@ -49,13 +51,21 @@ function App() {
             <FilePdf size={20}/>
           </Button>
         </div>
-        <img src={evenilsonImg} alt="" className="w-96" />
+        <img src={evenilsonImg} alt="Imagem Evenilson" className="w-96" />
       </section>
-      <section className="pt-20 my-0 mx-auto max-w-5xl" id="skills" ref={skillsRef}>
-        <Heading size="lg">
-          Habilidades
-        </Heading>
-      </section>
+      <SectionCard 
+        title="Habilidades" 
+        id="#skills" 
+        ref={skillsRef}
+      >
+        <div className="pt-10">
+          <div>
+            <Heading size="sm" className="uppercase font-light">
+              linguagens
+            </Heading>
+          </div>
+        </div>
+      </SectionCard>
       {/* <section className="h-[5000px]" id="projects" ref={projectsRef}>
         <Heading size="lg">
           Projetos
