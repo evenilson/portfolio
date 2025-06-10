@@ -1,5 +1,6 @@
 import { DarkModeSwitch } from "react-toggle-dark-mode";
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "@/hooks";
+
 
 export function ThemeSwitcher(){
 

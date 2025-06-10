@@ -1,25 +1,31 @@
 import clsx from "clsx";
-import { ReactNode } from "react";
-import { Heading } from "./UI/Heading";
+import React, { forwardRef, ReactNode } from "react";
+import { Heading } from "@/components/ui";
 
-interface SectionCardProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>{
+interface SectionCardProps extends React.HTMLAttributes<HTMLElement> {
   children: ReactNode,
   title: string
 }
 
-export function SectionCard({ children, title, className, ...props}: SectionCardProps){
-  return (
-    <section 
-      className={clsx(
-        "pt-20 my-0 mx-auto max-w-5xl",
-        {className}
-      )}
-      {...props}
-    >
-      <Heading size="lg">
-        {title}
-      </Heading>
-      {children}
-    </section>
-  );
-}
+const SectionCard = forwardRef<HTMLElement, SectionCardProps>(
+  ({ children, title, className, ...props }, ref) => {
+      return (
+        <section
+          ref={ref}
+          className={clsx(
+            "pt-20 my-0 mx-auto max-w-5xl",
+            className
+          )}
+          {...props}
+          
+        >
+          <Heading size="lg">
+            {title}
+          </Heading>
+          {children}
+        </section>
+      );
+  }
+);
+
+export { SectionCard };

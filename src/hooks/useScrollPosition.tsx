@@ -5,11 +5,11 @@ interface UseScrollPositionProvider {
   scrollPosition: number
 }
 
-export default function useScrollPosition(): UseScrollPositionProvider {
-  const [scrollPosition, setPosition] = useState(0);
+export function useScrollPosition(): UseScrollPositionProvider {
+  const [scrollPosition, setScrollPosition] = useState(0);
   useLayoutEffect(() => {
     function updatePosition() {
-      setPosition(parseInt(window.scrollY.toString()));
+      setScrollPosition(Math.round(window.scrollY));
     }
     window.addEventListener('scroll', updatePosition);
     updatePosition();

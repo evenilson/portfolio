@@ -3,25 +3,21 @@
 @tailwind components;
 
 .animated {
-
-
   opacity: 0;
   transform: translate(-26px, -10px);
-
-  &:not(:hover) {
-    animation-fill-mode: forwards;
-  }
+  animation-fill-mode: forwards;
 
   animation-name: cardAppear;
-
   animation-duration: 0.5s;
   animation-timing-function: ease;
+
 
   @for $i from 1 through 30 {
     &:nth-child(#{$i}n) {
       animation-delay: #{$i * 0.1}s;
     }
   }
+
 }
 
 @keyframes cardAppear {
