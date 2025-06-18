@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * Options for configuring the `useTypeWriter` hook.
@@ -46,10 +46,10 @@ interface UseTypeWriterProvider {
 }
 
 /**
- * 
- * @param options Configuration options for typing speed, loop behavior, etc. 
+ *
+ * @param options Configuration options for typing speed, loop behavior, etc.
  * @returns The current displayed text as it's being typed or erased.
- * 
+ *
  * @example
  * const text = useTypeWriter({
  *  texts: ["Wello, world!", "Welcome to my site."],
@@ -65,17 +65,17 @@ export function useTypeWriter({
   pauseBeforeDelete = 1000,
   pauseBetweenPhrases = 500,
   loop = false,
-  onCycleComplete = () => { }
+  onCycleComplete = () => {},
 }: UseTypeWriterProvider) {
-  const [displayed, setDisplayed] = useState(""); // Current visible text
+  const [displayed, setDisplayed] = useState(''); // Current visible text
 
   // Refs to control typing state without causing re-renders
-  const animationFrameRef = useRef<number | null>(null);  // ID from requestAnimationFrame 
-  const lastFrameTimeRef = useRef<number>(0);             // Timestamp of the last frame
-  const charIndexRef = useRef<number>(0);                 // Current character index
-  const phraseIndexRef = useRef<number>(0);               // Current phrase index   
-  const isDeletingRef = useRef<boolean>(false);           // Whether we are currently deleting
-  const pauseUntilRef = useRef<number | null>(null);      // Pause between transitions
+  const animationFrameRef = useRef<number | null>(null); // ID from requestAnimationFrame
+  const lastFrameTimeRef = useRef<number>(0); // Timestamp of the last frame
+  const charIndexRef = useRef<number>(0); // Current character index
+  const phraseIndexRef = useRef<number>(0); // Current phrase index
+  const isDeletingRef = useRef<boolean>(false); // Whether we are currently deleting
+  const pauseUntilRef = useRef<number | null>(null); // Pause between transitions
 
   useEffect(() => {
     let isCancelled = false;
@@ -85,13 +85,13 @@ export function useTypeWriter({
 
     const step = (time: number) => {
       if (isCancelled) return;
-      const currentText = texts[phraseIndexRef.current] || "";
+      const currentText = texts[phraseIndexRef.current] || '';
 
       // Handle pauses (e.g., between typing and deleting)
       if (pauseUntilRef.current && time < pauseUntilRef.current) {
         animationFrameRef.current = requestAnimationFrame(step);
         return;
-      };
+      }
 
       const delta = time - lastFrameTimeRef.current;
       const speed = isDeletingRef.current ? eraseSpeed : writeSpeed;
@@ -149,8 +149,15 @@ export function useTypeWriter({
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
+  }, [
+    writeSpeed,
+    eraseSpeed,
+    loop,
+    texts,
+    onCycleComplete,
+    pauseBeforeDelete,
+    pauseBetweenPhrases,
+  ]);
 
-  }, [writeSpeed, eraseSpeed, loop, texts, onCycleComplete, pauseBeforeDelete, pauseBetweenPhrases]);
-
-  return displayed
+  return displayed;
 }

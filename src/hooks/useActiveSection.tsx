@@ -1,10 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
 interface SectionRefMap {
   [key: string]: React.RefObject<HTMLElement>;
 }
 
-export function useActiveSection(sectionRefs: SectionRefMap, rootMargin = "-40% 0px -40% 0px", enableFallback = true) {
+export function useActiveSection(
+  sectionRefs: SectionRefMap,
+  rootMargin = '-40% 0px -40% 0px',
+  enableFallback = true,
+) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const observer = useRef<IntersectionObserver | null>(null);
@@ -24,7 +28,7 @@ export function useActiveSection(sectionRefs: SectionRefMap, rootMargin = "-40% 
         if (!hasInitialized.current) {
           initializeObserver();
         }
-      })
+      });
     } else {
       // Wait until all refs are assigned
       const mo = new MutationObserver(() => {
@@ -35,7 +39,7 @@ export function useActiveSection(sectionRefs: SectionRefMap, rootMargin = "-40% 
             if (!hasInitialized.current) {
               initializeObserver();
             }
-          })
+          });
         }
       });
       mo.observe(document.body, {
@@ -46,23 +50,22 @@ export function useActiveSection(sectionRefs: SectionRefMap, rootMargin = "-40% 
     }
 
     function initializeObserver() {
-      if(hasInitialized.current) return;
+      if (hasInitialized.current) return;
       hasInitialized.current = true;
       // Create observer to track visible sections
       observer.current = new IntersectionObserver(
         (observerEntries) => {
           const visibleEntries = observerEntries
-            .filter(entry => entry.isIntersecting)
+            .filter((entry) => entry.isIntersecting)
             .map((entry) => ({
               entry,
-              area:
-                entry.intersectionRect.width * entry.intersectionRect.height,
+              area: entry.intersectionRect.width * entry.intersectionRect.height,
             }))
             .sort((a, b) => b.area - a.area);
 
           // Set the section with the largest visible area
           if (visibleEntries.length > 0) {
-            const id = visibleEntries[0].entry.target.getAttribute("id");
+            const id = visibleEntries[0].entry.target.getAttribute('id');
             if (id && id !== currentId.current) {
               currentId.current = id;
               setActiveSection(id);
@@ -72,7 +75,7 @@ export function useActiveSection(sectionRefs: SectionRefMap, rootMargin = "-40% 
         {
           rootMargin,
           threshold: 0,
-        }
+        },
       );
 
       // Start observing all section elements
@@ -89,8 +92,14 @@ export function useActiveSection(sectionRefs: SectionRefMap, rootMargin = "-40% 
             .map(([key, ref]) => {
               if (!ref.current) return null;
               const rect = ref.current.getBoundingClientRect();
-              const visibleHeight = Math.max(0, Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0));
-              const visibleWidth = Math.max(0, Math.min(rect.right, window.innerWidth) - Math.max(rect.left, 0));
+              const visibleHeight = Math.max(
+                0,
+                Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0),
+              );
+              const visibleWidth = Math.max(
+                0,
+                Math.min(rect.right, window.innerWidth) - Math.max(rect.left, 0),
+              );
               const area = visibleHeight * visibleWidth;
               return { key, area };
             })
@@ -110,8 +119,8 @@ export function useActiveSection(sectionRefs: SectionRefMap, rootMargin = "-40% 
 
     // Cleanup: unobserve all sections
     return () => {
-      if(observer.current) {
-        for (const [, ref] of refEntries) { 
+      if (observer.current) {
+        for (const [, ref] of refEntries) {
           if (ref.current && observer.current) {
             observer.current.unobserve(ref.current);
           }
@@ -119,12 +128,12 @@ export function useActiveSection(sectionRefs: SectionRefMap, rootMargin = "-40% 
         observer.current?.disconnect();
         observer.current = null;
       }
-      if(fallbackRafId.current !== null) {
+      if (fallbackRafId.current !== null) {
         cancelAnimationFrame(fallbackRafId.current);
         fallbackRafId.current = null;
       }
     };
-  }, [sectionRefs, rootMargin]);
+  }, [sectionRefs, rootMargin, enableFallback]);
 
   return activeSection;
 }

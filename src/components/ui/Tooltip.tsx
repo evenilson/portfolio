@@ -2,19 +2,15 @@ import { ReactNode } from 'react';
 import * as TooltipRadix from '@radix-ui/react-tooltip';
 
 interface TooltipProps {
-  children: ReactNode,
-  tooltip: JSX.Element | string
+  children: ReactNode;
+  tooltip: JSX.Element | string;
 }
 
 export function Tooltip({ children, tooltip }: TooltipProps) {
   return (
     <TooltipRadix.Provider>
-      <TooltipRadix.Root
-        delayDuration={50}
-      >
-        <TooltipRadix.Trigger asChild>
-          {children}
-        </TooltipRadix.Trigger>
+      <TooltipRadix.Root delayDuration={50}>
+        <TooltipRadix.Trigger asChild>{children}</TooltipRadix.Trigger>
         <TooltipRadix.Portal>
           <TooltipRadix.Content
             className="data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade 
@@ -32,5 +28,5 @@ export function Tooltip({ children, tooltip }: TooltipProps) {
         </TooltipRadix.Portal>
       </TooltipRadix.Root>
     </TooltipRadix.Provider>
-  )
+  );
 }

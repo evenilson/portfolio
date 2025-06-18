@@ -1,4 +1,4 @@
-import { Star, StarHalf } from "phosphor-react";
+import { Star, StarHalf } from 'phosphor-react';
 
 interface StarsProps {
   name: string;
@@ -6,7 +6,7 @@ interface StarsProps {
 }
 
 export function Stars({ name, starsNumber }: StarsProps) {
-  const hasHalfStar = !Number.isInteger(starsNumber)
+  const hasHalfStar = !Number.isInteger(starsNumber);
   return (
     <>
       {hasHalfStar && (
@@ -14,11 +14,18 @@ export function Stars({ name, starsNumber }: StarsProps) {
           <StarHalf size={15} className="text-orange-800 animated" weight="fill" />
         </div>
       )}
-      {Array(Math.floor(starsNumber)).fill('').map((_, starIdx) => {
-        return (
-          <Star key={`${name}-star-${starIdx}`} size={15} className="text-orange-800 animated" weight="fill" />
-        )
-      })}
+      {Array(Math.floor(starsNumber))
+        .fill('')
+        .map((_, starIdx) => {
+          return (
+            <Star
+              key={`${name}-star-${starIdx}`}
+              size={15}
+              className="text-orange-800 animated"
+              weight="fill"
+            />
+          );
+        })}
     </>
   );
 }

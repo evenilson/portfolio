@@ -1,8 +1,7 @@
 import { useLayoutEffect, useState } from 'react';
 
-
 interface UseScrollPositionProvider {
-  scrollPosition: number
+  scrollPosition: number;
 }
 
 export function useScrollPosition(): UseScrollPositionProvider {

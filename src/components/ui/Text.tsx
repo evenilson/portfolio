@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { clsx } from 'clsx'
+import { clsx } from 'clsx';
 
 export interface TextProps {
   size?: 'sm' | 'md' | 'lg' | 'none';
@@ -10,7 +10,7 @@ export interface TextProps {
 }
 
 export function Text({ size = 'md', children, asChild = false, className }: TextProps) {
-  const Comp = asChild ? Slot : 'span'
+  const Comp = asChild ? Slot : 'span';
 
   return (
     <Comp
@@ -20,11 +20,10 @@ export function Text({ size = 'md', children, asChild = false, className }: Text
           'text-sm': size === 'md',
           'text-md': size === 'lg',
         },
-        className
+        className,
       )}
     >
       {children}
     </Comp>
   );
 }
-
