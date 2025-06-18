@@ -1,15 +1,15 @@
 import { useMemo, useRef } from "react";
 
-import { FilePdf, Star } from "phosphor-react"
+import { FilePdf } from "phosphor-react"
 
 import evenilsonImg from './assets/img/evenilson.png';
 
 import cv from './assets/CV - EVENILSON.pdf';
-import { Header, SectionCard, SocialMediasArea, TypeWriter } from "@/components"
+import { Header, SectionCard, SocialMediasArea, Stars, TypeWriter } from "@/components"
 import { Heading, Text, Button } from "./components/ui";
-import { ABOUT_ME_LIST } from "@/utils/constants";
 import { SKILLS } from "@/utils/skills";
 import { useActiveSection } from "./hooks";
+import pointSvg from "@/assets/icons/point.svg"
 
 
 function App() {
@@ -23,22 +23,22 @@ function App() {
     skills: skillsRef,
     projects: projectsRef,
     services: servicesRef
-  }), []); 
+  }), []);
 
   const activeSection = useActiveSection(sectionRefs) ?? "";
 
   return (
     <>
-      <Header activeSection={activeSection}/>
+      <Header activeSection={activeSection} />
       <SocialMediasArea />
       <main className="px-1 sm:px-2 md:px-3 lg:px-4 xl:px-5 2xl:px-6">
-        <section className="pt-20 my-0 mx-auto max-w-5xl flex items-center justify-between" id="home" ref={homeRef}>
-          <div className="">
+        <section className="pt-20 md:my-28 mx-auto max-w-5xl flex items-center justify-between flex-col-reverse md:flex-row" id="home" ref={homeRef}>
+          <div>
             <Text className="text-[2rem] font-light block leading-none" size="none">
               Olá, eu sou
             </Text>
             <Text className="font-mono text-[4rem] font-bold block tracking-tight w-fit" size="none">
-              <TypeWriter texts={ABOUT_ME_LIST} delay={200} withCaret loop />
+              <TypeWriter />
             </Text>
             <Text className="font-light block max-w-[30rem]" size="sm">
               Iniciei na programação aos meus 15 anos, onde tive os
@@ -58,12 +58,13 @@ function App() {
               <FilePdf size={20} />
             </Button>
           </div>
-          <img src={evenilsonImg} alt="Imagem Evenilson" className="w-96 hidden md:block animated " />
+          <img src={evenilsonImg} alt="Imagem Evenilson" className="w-96 animated " />
         </section>
         <SectionCard
           title="Habilidades"
           id="skills"
           ref={skillsRef}
+          isActive={activeSection === "skills"}
         >
           <div className="pt-10 grid grid-cols-1 justify-items-center md:justify-items-start md:grid-cols-2 gap-10">
             <div className="max-w-[30rem] w-full animated">
@@ -78,13 +79,7 @@ function App() {
                       <p>{name}</p>
                     </div>
                     <div className="flex items-center gap-1">
-                      {
-                        Array(stars).fill('').map((_, starIdx) => {
-                          return (
-                            <Star key={`${name}-star-${starIdx}`} size={15} className="text-orange-800 animated" weight="fill" />
-                          )
-                        })
-                      }
+                      <Stars name={name} starsNumber={stars} />
                     </div>
                   </div>
                 )
@@ -92,7 +87,7 @@ function App() {
             </div>
             <div className="max-w-[30rem] w-full animated">
               <Heading size="sm" className="uppercase font-light mb-2">
-                Frameworks
+                Frameworks, Bibliotecas e outros
               </Heading>
               {SKILLS.hardSkills.frameworks.map(({ name, stars, icon }) => {
                 return (
@@ -102,30 +97,49 @@ function App() {
                       <p>{name}</p>
                     </div>
                     <div className="flex items-center gap-1">
-                      {
-                        Array(stars).fill('').map((_, starIdx) => {
-                          return (
-                            <Star key={`${name}-star-${starIdx}`} size={15} className="text-orange-800 animated" weight="fill" />
-                          )
-                        })
-                      }
+                      <Stars name={name} starsNumber={stars} />
                     </div>
                   </div>
                 )
               })}
             </div>
+            <div className="max-w-[30rem] w-full animated">
+              <Heading size="sm" className="uppercase font-light mb-2">
+                Padrões e outros
+              </Heading>
+              {SKILLS.hardSkills.patterns.map(({ name, stars, icon }) => {
+                return (
+                  <div key={name} className="flex items-center justify-between animated">
+                    <div className="flex items-center gap-4">
+                      {icon}
+                      <p>{name}</p>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Stars name={name} starsNumber={stars} />
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+            <div className="max-w-[30rem] w-full animated">
+              <Heading size="sm" className="uppercase font-light mb-6">
+                Soft Skills
+              </Heading>
+              <div className="space-y-6">
+                {SKILLS.softSkills.map((softSkill) => {
+                  return (
+                    <div key={softSkill} className="flex items-center justify-between animated">
+                      <div className="flex items-center gap-4">
+                        <img src={pointSvg} alt={"Ponto de lista"} />
+                        <p>{softSkill}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
           </div>
         </SectionCard>
-        <section className="h-[5000px]" id="projects" ref={projectsRef}>
-          <Heading size="lg">
-            Projetos
-          </Heading>
-        </section>
-        <section className="h-[5000px]" id="services" ref={servicesRef}>
-          <Heading size="lg">
-            Services
-          </Heading>
-        </section>
       </main>
     </>
   )

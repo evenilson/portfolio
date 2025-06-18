@@ -28,7 +28,7 @@ export function Header({activeSection}:HeaderProps){
               const isSelected = activeSection === id;
               return (
                 <a key={id} href={`#${id}`} className={clsx(
-                  `relative after:absolute hover:after:w-3/4 after:h-[.2rem] after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:rounded-full after:bg-blue-800 after:dark:bg-blue-400 after:transition-width`,
+                  'relative after:absolute hover:after:w-3/4 after:h-[.2rem] after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:rounded-full after:bg-blue-800 after:dark:bg-blue-400 after:transition-width after:duration-300',
                   'hover:text-blue-800 hover:dark:text-blue-400 animated',
                   {
                     'after:w-3/4 text-blue-800 dark:text-blue-400': isSelected,
