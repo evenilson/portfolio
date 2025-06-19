@@ -9,7 +9,6 @@ import { Header, SectionCard, SocialMediasArea, Stars, TypeWriter } from '@/comp
 import { Heading, Text, Button } from './components/ui';
 import { SKILLS } from '@/utils/skills';
 import { useActiveSection } from './hooks';
-import pointSvg from '@/assets/icons/point.svg';
 
 function App() {
   const homeRef = useRef<HTMLElement | null>(null);
@@ -128,14 +127,14 @@ function App() {
             </div>
             <div className="max-w-[30rem] w-full animated">
               <Heading size="sm" className="uppercase font-light mb-6">
-                Soft Skills
+                Sociais
               </Heading>
               <div className="space-y-6">
-                {SKILLS.softSkills.map((softSkill) => {
+                {SKILLS.softSkills.items.map((softSkill) => {
                   return (
                     <div key={softSkill} className="flex items-center justify-between animated">
                       <div className="flex items-center gap-4">
-                        <img src={pointSvg} alt={'Ponto de lista'} />
+                        {SKILLS.softSkills.icon}
                         <p>{softSkill}</p>
                       </div>
                     </div>
