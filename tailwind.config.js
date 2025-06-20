@@ -21,6 +21,7 @@ module.exports = {
           800: '#C4CED0'
         },
         blue: {
+          100: '#d9f0f5',
           400: '#54D6F2',
           600: '#3ABBD8',
           700: '#2995AD',
@@ -74,6 +75,11 @@ module.exports = {
             width: '50%',
           },
         },
+        pulseFull: {
+          '50%': {
+            opacity: 0,
+          },
+        },
 
       },
       animation: {
@@ -81,15 +87,17 @@ module.exports = {
         slideLeftAndFade: 'slideLeftAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
         slideUpAndFade: 'slideUpAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
         slideRightAndFade: 'slideRightAndFade .4s cubic-bezier(0.16, 1, 0.3, 1)',
-        downSize: 'downSize .2s linear'
+        downSize: 'downSize .2s linear',
+        pulseFull: 'pulseFull 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
       },
       transitionProperty: {
-        width: "width"
+        width: 'width',
+        scale: ['scale', 'opacity']
       }
     },
     fontFamily: {
       sans: ['"Comfortaa"', 'cursive'],
-      mono: ['"Fira Code"', 'monospace']
+      mono: ['"Caveat"', 'mono']
     }
   },
   plugins: [],
