@@ -14,6 +14,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-separator": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.5",
     "clsx": "^1.2.1",

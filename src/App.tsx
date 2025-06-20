@@ -32,7 +32,7 @@ function App() {
     <>
       <Header activeSection={activeSection} />
       <SocialMediasArea />
-      <main className="px-1 sm:px-2 md:px-3 lg:px-4 xl:px-5 2xl:px-6">
+      <main className="px-2 sm:px-3 md:px-4 lg:px-5 xl:px-6 2xl:px-7">
         <section
           className="pt-20 md:my-28 mx-auto max-w-5xl flex items-center justify-between flex-col-reverse md:flex-row"
           id="home"
