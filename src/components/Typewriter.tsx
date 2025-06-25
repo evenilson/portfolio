@@ -1,5 +1,5 @@
 import { useTypeWriter } from '@/hooks';
-import { ABOUT_ME_LIST } from '@/utils/constants';
+import { ABOUT_ME_LIST } from '@/utils/constants/general';
 
 export function TypeWriter() {
   const displayed = useTypeWriter({

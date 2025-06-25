@@ -15,7 +15,7 @@ const SectionCard = forwardRef<HTMLElement, SectionCardProps>(
         <Heading
           size="lg"
           className={clsx(
-            'w-fit relative after:absolute after:h-[.2rem] after:left-0 after:-translate-x-0 after:-bottom-1 after:rounded-full after:bg-zinc-800 after:dark:bg-zinc-200 after:transition-width after:duration-700',
+            'w-fit relative after:absolute after:h-[.2rem] after:left-0 after:-translate-x-0 after:-bottom-1 after:rounded-full after:bg-black-800 after:dark:bg-white-400 after:transition-width after:duration-700',
             'animated',
             {
               'after:w-3/4': isActive,

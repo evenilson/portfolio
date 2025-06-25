@@ -4,3 +4,4 @@ export { SocialMediasArea } from './SocialMediasArea';
 export { ThemeSwitcher } from './ThemeSwitcher';
 export { TypeWriter } from './Typewriter';
 export { Stars } from './Stars';
+export { ProjectCard } from './ProjectCard';

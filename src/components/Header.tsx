@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { Envelope, List, X } from 'phosphor-react';
 import * as Separator from '@radix-ui/react-separator';
 import { useScrollPosition } from '@/hooks';
-import { SECTION_LIST } from '@/utils/constants';
+import { SECTION_LIST } from '@/utils/constants/general';
 import { Button, Text } from '@/components/ui';
 import { ThemeSwitcher } from '@/components';
 import * as Dialog from '@radix-ui/react-dialog';
@@ -48,8 +48,8 @@ function NavMobile({ activeSection }: HeaderProps) {
           <List size={24} />
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-black-400/40 backdrop-blur-sm z-40" />
-          <Dialog.Content className="fixed top-0 left-0 z-50 h-full w-full max-w-80 shadow-lg bg-white-400 text-zinc-800 dark:text-zinc-200 dark:bg-black-800">
+          <Dialog.Overlay className="fixed inset-0 dark:bg-white-800/15 bg-black-800/15 backdrop-blur-sm z-40" />
+          <Dialog.Content className="fixed top-0 left-0 z-50 h-full w-full max-w-80 shadow-lg bg-white-400 text-black-800 dark:text-white-400 dark:bg-black-800">
             <Dialog.Title className="flex items-center justify-between mb-6 p-2">
               <Text className="font-bold">Menu</Text>
               <Dialog.Close>

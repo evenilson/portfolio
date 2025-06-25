@@ -5,22 +5,30 @@ import { FilePdf } from 'phosphor-react';
 import evenilsonImg from './assets/img/evenilson.png';
 
 import cv from './assets/CV - EVENILSON.pdf';
-import { Header, SectionCard, SocialMediasArea, Stars, TypeWriter } from '@/components';
+import {
+  Header,
+  ProjectCard,
+  SectionCard,
+  SocialMediasArea,
+  Stars,
+  TypeWriter,
+} from '@/components';
 import { Heading, Text, Button } from './components/ui';
-import { SKILLS } from '@/utils/skills';
+import { SKILLS } from '@/utils/constants/skills';
 import { useActiveSection } from './hooks';
+import { PROJECTS } from './utils/constants/projects';
 
 function App() {
   const homeRef = useRef<HTMLElement | null>(null);
   const skillsRef = useRef<HTMLElement | null>(null);
-  // const projectsRef = useRef<HTMLElement | null>(null);
+  const projectsRef = useRef<HTMLElement | null>(null);
   // const servicesRef = useRef<HTMLElement | null>(null);
 
   const sectionRefs = useMemo(
     () => ({
       home: homeRef,
       skills: skillsRef,
-      // projects: projectsRef,
+      projects: projectsRef,
       // services: servicesRef,
     }),
     [],
@@ -142,6 +150,28 @@ function App() {
                 })}
               </div>
             </div>
+          </div>
+        </SectionCard>
+        <SectionCard
+          title="Projetos"
+          id="projects"
+          ref={projectsRef}
+          isActive={activeSection === 'projects'}
+        >
+          <div className="flex gap-8 my-10 flex-wrap justify-center">
+            {PROJECTS.map(({ id, title, description, image, url, badges, myContributions }) => {
+              return (
+                <ProjectCard
+                  key={id}
+                  title={title}
+                  description={description}
+                  image={image}
+                  url={url}
+                  badges={badges}
+                  myContributions={myContributions}
+                />
+              );
+            })}
           </div>
         </SectionCard>
       </main>
