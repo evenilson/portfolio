@@ -1,8 +1,9 @@
 {
   "name": "portfolio",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.1.0",
   "type": "module",
+  "homepage": "https://evenilson.github.io/portfolio",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,7 +12,9 @@
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "predeploy": "pnpm build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
@@ -45,6 +48,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-tailwindcss": "^3.18.0",
+    "gh-pages": "^6.3.0",
     "jsdom": "^26.1.0",
     "postcss": "^8.4.21",
     "prettier": "^3.5.3",
