@@ -191,7 +191,7 @@ function App() {
         >
           <div className="flex flex-col items-center justify-center my-10 gap-8">
             {devToPostList?.map((article) => {
-              return <ArticleCard article={article} />;
+              return <ArticleCard article={article} key={article.id} />;
             })}
           </div>
         </SectionCard>
