@@ -5,28 +5,45 @@ import { FilePdf } from 'phosphor-react';
 import evenilsonImg from './assets/img/evenilson.png';
 
 import cv from './assets/CV - EVENILSON.pdf';
-import { Header, SectionCard, SocialMediasArea, Stars, TypeWriter } from '@/components';
+import {
+  Header,
+  ProjectCard,
+  SectionCard,
+  SocialMediasArea,
+  Stars,
+  TypeWriter,
+} from '@/components';
 import { Heading, Text, Button } from './components/ui';
-import { SKILLS } from '@/utils/skills';
+import { SKILLS } from '@/utils/constants/skills';
 import { useActiveSection } from './hooks';
+import { PROJECTS } from './utils/constants/projects';
+import { useQuery } from '@tanstack/react-query';
+import { GetDevToPosts } from './services/getDevToPosts';
+import { ArticleCard } from './components/ArticleCard';
 
 function App() {
   const homeRef = useRef<HTMLElement | null>(null);
   const skillsRef = useRef<HTMLElement | null>(null);
-  // const projectsRef = useRef<HTMLElement | null>(null);
-  // const servicesRef = useRef<HTMLElement | null>(null);
+  const projectsRef = useRef<HTMLElement | null>(null);
+  const articlesRef = useRef<HTMLElement | null>(null);
 
   const sectionRefs = useMemo(
     () => ({
       home: homeRef,
       skills: skillsRef,
-      // projects: projectsRef,
-      // services: servicesRef,
+      projects: projectsRef,
+      articlesRef: articlesRef,
     }),
     [],
   );
 
   const activeSection = useActiveSection(sectionRefs) ?? '';
+
+  const { data: devToPostList } = useQuery({
+    queryKey: ['todos'],
+    queryFn: GetDevToPosts,
+    refetchOnWindowFocus: false,
+  });
 
   return (
     <>
@@ -43,12 +60,12 @@ function App() {
               Olá, eu sou
             </Text>
             <Text
-              className="font-mono text-[4rem] font-bold block tracking-tight w-fit"
+              className="font-mono text-[4rem] font-bold block tracking-tight w-fit my-4"
               size="none"
             >
               <TypeWriter />
             </Text>
-            <Text className="font-light block max-w-[30rem]" size="sm">
+            <Text className="font-light block max-w-[30rem] leading-8" size="md">
               Iniciei na programação aos meus 15 anos, onde tive os primeiros contatos com a lógica
               de programação, além de HTML e CSS. Após isso, comecei a utilizar o React.js,
               utilizando conceitos importantes no desenvolvimento de interfaces. Contudo, sempre
@@ -142,6 +159,40 @@ function App() {
                 })}
               </div>
             </div>
+          </div>
+        </SectionCard>
+        <SectionCard
+          title="Projetos"
+          id="projects"
+          ref={projectsRef}
+          isActive={activeSection === 'projects'}
+        >
+          <div className="flex gap-8 my-10 flex-wrap justify-center">
+            {PROJECTS.map(({ id, title, description, image, url, badges, myContributions }) => {
+              return (
+                <ProjectCard
+                  key={id}
+                  title={title}
+                  description={description}
+                  image={image}
+                  url={url}
+                  badges={badges}
+                  myContributions={myContributions}
+                />
+              );
+            })}
+          </div>
+        </SectionCard>
+        <SectionCard
+          title="Artigos"
+          id="articles"
+          ref={articlesRef}
+          isActive={activeSection === 'articles'}
+        >
+          <div className="flex flex-col items-center justify-center my-10 gap-8">
+            {devToPostList?.map((article) => {
+              return <ArticleCard article={article} />;
+            })}
           </div>
         </SectionCard>
       </main>
