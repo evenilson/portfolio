@@ -25,7 +25,7 @@ export function ProjectCard({
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="flex flex-col items-center w-full max-w-[16rem] max-h-96 p-4 rounded-br-2xl rounded-tl-2xl shadow-lg bg-blue-100/25 dark:bg-black-600/75 border-2 border-blue-600/10 hover:border-blue-600">
+        <button className="flex flex-col items-center w-full max-w-[16rem] max-h-96 p-4 rounded-br-2xl rounded-tl-2xl shadow-sm hover:shadow-md transition-shadow border border-blue-600/30 dark:border-blue-600/15 hover:border-blue-600 dark:hover:border-blue-600">
           <div className="flex flex-col items-center gap-4">
             <div className="w-24 h-24 p-4 flex items-center justify-center rounded-full shadow-md bg-white-600 dark:bg-black-700">
               <img src={image} alt={`Logo ${title}`} />

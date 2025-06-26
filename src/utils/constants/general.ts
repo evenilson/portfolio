@@ -1,19 +1,18 @@
 export const ABOUT_ME_LIST = [
   'Evenilson Liandro',
   'dev Front-end',
-  'especialista em React.js',
+  'esp. em React.js',
   'apaixonado por UI/UX',
   'solucionador de bugs',
   'fã de animações',
-  'defensor de acessibilidade',
-  'amigo dos gatos',
+  'defensor da A11Y',
 ];
 
 export const SECTION_LIST = Object.freeze([
   { id: 'home', name: 'Início' },
   { id: 'skills', name: 'Habilidades' },
   { id: 'projects', name: 'Projetos' },
-  { id: 'services', name: 'Serviços' },
+  { id: 'articles', name: 'Artigos' },
 ]);
 
 export const colorBadgeClasses = Object.freeze({
@@ -63,8 +62,8 @@ export const colorBadgeClasses = Object.freeze({
     text: 'text-pink-500 text-opacity-75',
   },
   orange: {
-    bg: 'bg-orange-500 bg-opacity-25',
-    border: 'border-orange-500 border-opacity-75',
-    text: 'text-orange-500 text-opacity-75',
+    bg: 'bg-blue-500 bg-opacity-25',
+    border: 'border-blue-500 border-opacity-75',
+    text: 'text-blue-500 text-opacity-75',
   },
 });

@@ -1,31 +1,31 @@
-import { BehanceLogo, CodepenLogo, DribbbleLogo, GithubLogo, LinkedinLogo } from 'phosphor-react';
+import {
+  DevToLogoIcon,
+  LinkedinLogoIcon,
+  GithubLogoIcon,
+  DribbbleLogoIcon,
+} from '@phosphor-icons/react';
 import { Tooltip } from '@/components/ui';
 
 const SOCIAL_MEDIA_LIST = Object.freeze([
   {
     socialMedia: 'Linkedin',
-    logo: <LinkedinLogo size={25} className="dark:text-blue-400 text-blue-800" />,
+    logo: <LinkedinLogoIcon size={25} className="dark:text-orange-400 text-orange-800" />,
     href: 'https://www.linkedin.com/in/evenilsonliandro/',
   },
   {
-    socialMedia: 'CodePen',
-    logo: <CodepenLogo size={25} className="dark:text-blue-400 text-blue-800" />,
-    href: 'https://codepen.io/evenilsonliandro',
-  },
-  {
     socialMedia: 'GitHub',
-    logo: <GithubLogo size={25} className="dark:text-blue-400 text-blue-800" />,
+    logo: <GithubLogoIcon size={25} className="dark:text-orange-400 text-orange-800" />,
     href: 'https://github.com/evenilson',
   },
   {
-    socialMedia: 'Behance',
-    logo: <BehanceLogo size={25} className="dark:text-blue-400 text-blue-800" />,
-    href: '#',
+    socialMedia: 'Dev.to',
+    logo: <DevToLogoIcon size={25} className="dark:text-orange-400 text-orange-800" />,
+    href: 'https://dev.to/evenilsonliandro',
   },
   {
     socialMedia: 'Dribbble',
-    logo: <DribbbleLogo size={25} className="dark:text-blue-400 text-blue-800" />,
-    href: '#',
+    logo: <DribbbleLogoIcon size={25} className="dark:text-orange-400 text-orange-800" />,
+    href: 'https://dribbble.com/evenilsonliandro',
   },
 ]);
 
@@ -42,7 +42,7 @@ export function SocialMediasArea() {
               href={href}
               target="_blank"
               aria-label={`${socialMedia} Logo`}
-              className="rounded-full w-10 h-10 border-2 dark:border-blue-400 border-blue-800 flex justify-center items-center 
+              className="rounded-full w-10 h-10 border-2 dark:border-orange-400 border-orange-800 flex justify-center items-center 
                  hover:opacity-90 hover:scale-90 transition-scale "
             >
               {logo}

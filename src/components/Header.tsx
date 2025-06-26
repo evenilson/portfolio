@@ -7,6 +7,7 @@ import { Button, Text } from '@/components/ui';
 import { ThemeSwitcher } from '@/components';
 import * as Dialog from '@radix-ui/react-dialog';
 import { useState } from 'react';
+import logoPortifolio from '@/assets/svgs/logo-portifolio.svg';
 
 interface HeaderProps {
   activeSection: string;
@@ -51,7 +52,10 @@ function NavMobile({ activeSection }: HeaderProps) {
           <Dialog.Overlay className="fixed inset-0 dark:bg-white-800/15 bg-black-800/15 backdrop-blur-sm z-40" />
           <Dialog.Content className="fixed top-0 left-0 z-50 h-full w-full max-w-80 shadow-lg bg-white-400 text-black-800 dark:text-white-400 dark:bg-black-800">
             <Dialog.Title className="flex items-center justify-between mb-6 p-2">
-              <Text className="font-bold">Menu</Text>
+              <div className="flex gap-2 items-center">
+                <img src={logoPortifolio} alt="Logo Portfólio" className="w-10 h-10" />
+                <Text className="font-bold">Menu</Text>
+              </div>
               <Dialog.Close>
                 <button>
                   <X size={24} />
@@ -97,8 +101,11 @@ export function Header({ activeSection }: HeaderProps) {
       })}
     >
       <nav className="w-full py-5 my-0 mx-auto flex items-center justify-between max-w-5xl">
+        <div className="flex gap-2">
+          <img src={logoPortifolio} alt="Logo Portfólio" className="w-10 h-10" />
+          <NavMobile activeSection={activeSection} />
+        </div>
         <NavDesktop activeSection={activeSection} />
-        <NavMobile activeSection={activeSection} />
         <div className="flex items-center gap-3">
           <Button className="w-fit flex items-center justify-center px-1 sm:px-4 gap-2" asChild>
             <a href="mailto:evenilsonlp@gmail.com" target="__blank" aria-label="Entrar em contato">

@@ -1,12 +1,12 @@
 import { ProjectInterface } from '@/types/general';
-import logoPlataformaMaisInfancia from '@/assets/projects/logo-plataforma-mais-infancia.svg';
-import logoIntegraSocial from '@/assets/projects/logo-integra-social.svg';
-import logoAcessoCidadao from '@/assets/projects/logo-acesso-cidadao.svg';
-import logoBigDataSocial from '@/assets/projects/logo-big-data-social.svg';
-import logoObservai from '@/assets/projects/logo-observai.svg';
-import logoCearaLid from '@/assets/projects/logo-ceara-lid.svg';
-import logoSuite from '@/assets/projects/logo-suite.svg';
-import logoFacilitaMais from '@/assets/projects/logo-facilitamais.svg';
+import logoPlataformaMaisInfancia from '@/assets/svgs/projects/logo-plataforma-mais-infancia.svg';
+import logoIntegraSocial from '@/assets/svgs/projects/logo-integra-social.svg';
+import logoAcessoCidadao from '@/assets/svgs/projects/logo-acesso-cidadao.svg';
+import logoBigDataSocial from '@/assets/svgs/projects/logo-big-data-social.svg';
+import logoObservai from '@/assets/svgs/projects/logo-observai.svg';
+import logoCearaLid from '@/assets/svgs/projects/logo-ceara-lid.svg';
+import logoSuite from '@/assets/svgs/projects/logo-suite.svg';
+import logoFacilitaMais from '@/assets/svgs/projects/logo-facilitamais.svg';
 
 export const PROJECTS: ProjectInterface[] = [
   {
