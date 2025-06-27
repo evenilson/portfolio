@@ -25,7 +25,7 @@ export function ProjectCard({
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="flex flex-col items-center w-full max-w-[16rem] max-h-96 p-4 rounded-br-2xl rounded-tl-2xl shadow-sm hover:shadow-md transition-shadow border border-blue-600/30 dark:border-blue-600/15 hover:border-blue-600 dark:hover:border-blue-600">
+        <button className="flex flex-col items-center max-w-[16rem] max-h-96 p-4 rounded-br-2xl rounded-tl-2xl shadow-sm hover:shadow-md transition-shadow border border-blue-600/30 dark:border-blue-600/15 hover:border-blue-600 dark:hover:border-blue-600">
           <div className="flex flex-col items-center gap-4">
             <div className="w-24 h-24 p-4 flex items-center justify-center rounded-full shadow-md bg-white-600 dark:bg-black-700">
               <img src={image} alt={`Logo ${title}`} />
@@ -44,7 +44,7 @@ export function ProjectCard({
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 dark:bg-white-800/15 bg-black-800/15 backdrop-blur-sm z-40" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-screen-sm shadow-lg bg-white-400 text-black-800 dark:text-white-400 dark:bg-black-800 rounded-md">
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-screen-sm shadow-lg bg-white-400 text-black-800 dark:text-white-400 dark:bg-black-800 rounded-md overflow-y-auto">
           <Dialog.Title className="flex items-center justify-between p-8">
             <div className="flex items-center gap-2">
               <div className="w-20 h-20 p-1 flex items-center justify-center rounded-full shadow-md bg-white-600 dark:bg-black-700">
