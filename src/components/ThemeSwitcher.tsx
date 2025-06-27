@@ -9,11 +9,13 @@ export function ThemeSwitcher() {
   };
 
   return (
-    <DarkModeSwitch
-      className="hover:opacity-70 transition-opacity"
-      checked={colorTheme === 'light'}
-      onChange={toogleTheme}
-      size={25}
-    />
+    <div>
+      <DarkModeSwitch
+        className="hover:opacity-70 transition-opacity"
+        checked={colorTheme === 'light'}
+        onChange={toogleTheme}
+        size={24}
+      />
+    </div>
   );
 }
