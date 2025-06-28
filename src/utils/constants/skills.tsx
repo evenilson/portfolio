@@ -1,5 +1,5 @@
-const styleIconContent = 'dark:fill-black-400 fill-blue-100 stroke-blue-800 dark:stroke-blue-400';
-const styleIcon = 'dark:fill-zinc-50 fill-zinc-950';
+const styleIconContent = 'dark:fill-black-400 fill-blue-100 stroke-blue-800 dark:stroke-blue-400'
+const styleIcon = 'dark:fill-zinc-50 fill-zinc-950'
 
 export const SKILLS = Object.freeze({
   hardSkills: {
@@ -983,4 +983,4 @@ export const SKILLS = Object.freeze({
       'Foco em acessibilidade e experiência do usuário',
     ],
   },
-});
+})

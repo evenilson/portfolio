@@ -1,14 +1,15 @@
-import { ColorBadgeKeys } from '@/types/colors';
-import { Text } from './Text';
-import { colorBadgeClasses } from '@/utils/constants/general';
+import { ColorBadgeKeys } from '@/types/colors'
+import { colorBadgeClasses } from '@/utils/constants/general'
+
+import { Text } from './Text'
 
 interface BadgeProps {
-  color: ColorBadgeKeys;
-  children: React.ReactNode;
+  color: ColorBadgeKeys
+  children: React.ReactNode
 }
 
 export function Badge({ color, children }: BadgeProps) {
-  const classes = colorBadgeClasses[color as keyof typeof colorBadgeClasses];
+  const classes = colorBadgeClasses[color as keyof typeof colorBadgeClasses]
 
   return (
     <div
@@ -16,5 +17,5 @@ export function Badge({ color, children }: BadgeProps) {
     >
       <Text className={`text-xs font-bold ${classes.text}`}>{children}</Text>
     </div>
-  );
+  )
 }

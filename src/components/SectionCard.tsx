@@ -1,11 +1,12 @@
-import clsx from 'clsx';
-import React, { forwardRef, ReactNode } from 'react';
-import { Heading } from '@/components/ui';
+import clsx from 'clsx'
+import React, { forwardRef, ReactNode } from 'react'
+
+import { Heading } from '@/components/ui'
 
 interface SectionCardProps extends React.HTMLAttributes<HTMLElement> {
-  children: ReactNode;
-  title: string;
-  isActive: boolean;
+  children: ReactNode
+  title: string
+  isActive: boolean
 }
 
 const SectionCard = forwardRef<HTMLElement, SectionCardProps>(
@@ -20,15 +21,15 @@ const SectionCard = forwardRef<HTMLElement, SectionCardProps>(
             {
               'after:w-3/4': isActive,
               'after:w-0': !isActive,
-            },
+            }
           )}
         >
           {title}
         </Heading>
         {children}
       </section>
-    );
-  },
-);
+    )
+  }
+)
 
-export { SectionCard };
+export { SectionCard }

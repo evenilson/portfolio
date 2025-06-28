@@ -1,12 +1,13 @@
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import { useTheme } from '@/hooks';
+import { DarkModeSwitch } from 'react-toggle-dark-mode'
+
+import { useTheme } from '@/hooks'
 
 export function ThemeSwitcher() {
-  const { colorTheme, setTheme } = useTheme();
+  const { colorTheme, setTheme } = useTheme()
 
   const toogleTheme = () => {
-    setTheme(colorTheme);
-  };
+    setTheme(colorTheme)
+  }
 
   return (
     <div>
@@ -17,5 +18,5 @@ export function ThemeSwitcher() {
         size={24}
       />
     </div>
-  );
+  )
 }

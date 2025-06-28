@@ -1,10 +1,11 @@
 import {
   DevToLogoIcon,
-  LinkedinLogoIcon,
-  GithubLogoIcon,
   DribbbleLogoIcon,
-} from '@phosphor-icons/react';
-import { Tooltip } from '@/components/ui';
+  GithubLogoIcon,
+  LinkedinLogoIcon,
+} from '@phosphor-icons/react'
+
+import { Tooltip } from '@/components/ui'
 
 const SOCIAL_MEDIA_LIST = Object.freeze([
   {
@@ -27,7 +28,7 @@ const SOCIAL_MEDIA_LIST = Object.freeze([
     logo: <DribbbleLogoIcon size={25} className="dark:text-orange-400 text-orange-800" />,
     href: 'https://dribbble.com/evenilsonliandro',
   },
-]);
+])
 
 export function SocialMediasArea() {
   return (
@@ -48,8 +49,8 @@ export function SocialMediasArea() {
               {logo}
             </a>
           </Tooltip>
-        );
+        )
       })}
     </div>
-  );
+  )
 }

@@ -1,8 +1,10 @@
-import { useMemo } from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
-import { Badge, Heading, Text } from './ui';
-import { ProjectInterface } from '@/types/general';
-import { X } from 'phosphor-react';
+import * as Dialog from '@radix-ui/react-dialog'
+import { X } from 'phosphor-react'
+import { useMemo } from 'react'
+
+import { ProjectInterface } from '@/types/general'
+
+import { Badge, Heading, Text } from './ui'
 
 interface ProjectCardProps extends Omit<ProjectInterface, 'id'> {}
 
@@ -15,12 +17,12 @@ export function ProjectCard({
   myContributions,
 }: ProjectCardProps) {
   const firstThreeBadges = useMemo(() => {
-    return badges.slice(0, 3);
-  }, [badges]);
+    return badges.slice(0, 3)
+  }, [badges])
 
   const hasMoreBadges = useMemo(() => {
-    return badges.length > 3;
-  }, [badges]);
+    return badges.length > 3
+  }, [badges])
 
   return (
     <Dialog.Root>
@@ -94,5 +96,5 @@ export function ProjectCard({
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
-  );
+  )
 }

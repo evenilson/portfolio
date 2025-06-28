@@ -1,31 +1,30 @@
-import { useMemo, useRef } from 'react';
+import { useQuery } from '@tanstack/react-query'
+import { FilePdf } from 'phosphor-react'
+import { useMemo, useRef } from 'react'
 
-import { FilePdf } from 'phosphor-react';
-
-import evenilsonImg from './assets/img/evenilson.png';
-
-import cv from './assets/CV - EVENILSON.pdf';
 import {
+  ArticleCard,
   Header,
   ProjectCard,
   SectionCard,
   SocialMediasArea,
   Stars,
   TypeWriter,
-} from '@/components';
-import { Heading, Text, Button } from './components/ui';
-import { SKILLS } from '@/utils/constants/skills';
-import { useActiveSection } from './hooks';
-import { PROJECTS } from './utils/constants/projects';
-import { useQuery } from '@tanstack/react-query';
-import { GetDevToPosts } from './services/getDevToPosts';
-import { ArticleCard } from './components/ArticleCard';
+} from '@/components'
+import { SKILLS } from '@/utils/constants/skills'
+
+import cv from './assets/CV - EVENILSON.pdf'
+import evenilsonImg from './assets/img/evenilson.png'
+import { Button, Heading, Text } from './components/ui'
+import { useActiveSection } from './hooks'
+import { GetDevToPosts } from './services/getDevToPosts'
+import { PROJECTS } from './utils/constants/projects'
 
 function App() {
-  const homeRef = useRef<HTMLElement | null>(null);
-  const skillsRef = useRef<HTMLElement | null>(null);
-  const projectsRef = useRef<HTMLElement | null>(null);
-  const articlesRef = useRef<HTMLElement | null>(null);
+  const homeRef = useRef<HTMLElement | null>(null)
+  const skillsRef = useRef<HTMLElement | null>(null)
+  const projectsRef = useRef<HTMLElement | null>(null)
+  const articlesRef = useRef<HTMLElement | null>(null)
 
   const sectionRefs = useMemo(
     () => ({
@@ -34,16 +33,16 @@ function App() {
       projects: projectsRef,
       articlesRef: articlesRef,
     }),
-    [],
-  );
+    []
+  )
 
-  const activeSection = useActiveSection(sectionRefs) ?? '';
+  const activeSection = useActiveSection(sectionRefs) ?? ''
 
   const { data: devToPostList } = useQuery({
     queryKey: ['dev-to-post-list'],
     queryFn: GetDevToPosts,
     refetchOnWindowFocus: false,
-  });
+  })
 
   return (
     <>
@@ -104,7 +103,7 @@ function App() {
                       <Stars name={name} starsNumber={stars} />
                     </div>
                   </div>
-                );
+                )
               })}
             </div>
             <div className="max-w-[30rem] w-full animated">
@@ -122,7 +121,7 @@ function App() {
                       <Stars name={name} starsNumber={stars} />
                     </div>
                   </div>
-                );
+                )
               })}
             </div>
             <div className="max-w-[30rem] w-full animated">
@@ -140,7 +139,7 @@ function App() {
                       <Stars name={name} starsNumber={stars} />
                     </div>
                   </div>
-                );
+                )
               })}
             </div>
             <div className="max-w-[30rem] w-full animated">
@@ -156,7 +155,7 @@ function App() {
                         <p>{softSkill}</p>
                       </div>
                     </div>
-                  );
+                  )
                 })}
               </div>
             </div>
@@ -180,7 +179,7 @@ function App() {
                   badges={badges}
                   myContributions={myContributions}
                 />
-              );
+              )
             })}
           </div>
         </SectionCard>
@@ -192,13 +191,13 @@ function App() {
         >
           <div className="flex flex-col items-center justify-center my-10 gap-8">
             {devToPostList?.map((article) => {
-              return <ArticleCard article={article} key={article.id} />;
+              return <ArticleCard article={article} key={article.id} />
             })}
           </div>
         </SectionCard>
       </main>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

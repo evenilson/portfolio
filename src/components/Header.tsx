@@ -1,23 +1,24 @@
-import clsx from 'clsx';
-import { Envelope, List, X } from 'phosphor-react';
-import * as Separator from '@radix-ui/react-separator';
-import { useScrollPosition } from '@/hooks';
-import { SECTION_LIST } from '@/utils/constants/general';
-import { Button, Text } from '@/components/ui';
-import { ThemeSwitcher } from '@/components';
-import * as Dialog from '@radix-ui/react-dialog';
-import { useState } from 'react';
-import logoPortifolio from '@/assets/svgs/logo-portifolio.svg';
+import * as Dialog from '@radix-ui/react-dialog'
+import * as Separator from '@radix-ui/react-separator'
+import clsx from 'clsx'
+import { Envelope, List, X } from 'phosphor-react'
+import { useState } from 'react'
+
+import logoPortifolio from '@/assets/svgs/logo-portifolio.svg'
+import { ThemeSwitcher } from '@/components'
+import { Button, Text } from '@/components/ui'
+import { useScrollPosition } from '@/hooks'
+import { SECTION_LIST } from '@/utils/constants/general'
 
 interface HeaderProps {
-  activeSection: string;
+  activeSection: string
 }
 
 function NavDesktop({ activeSection }: HeaderProps) {
   return (
     <div className="hidden sm:flex items-center justify-between gap-6">
       {SECTION_LIST.map(({ id, name }) => {
-        const isSelected = activeSection === id;
+        const isSelected = activeSection === id
         return (
           <a
             key={id}
@@ -28,19 +29,19 @@ function NavDesktop({ activeSection }: HeaderProps) {
               {
                 'after:w-3/4 text-blue-800 dark:text-blue-400': isSelected,
                 'after:w-0': !isSelected,
-              },
+              }
             )}
           >
             <Text>{name}</Text>
           </a>
-        );
+        )
       })}
     </div>
-  );
+  )
 }
 
 function NavMobile({ activeSection }: HeaderProps) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
 
   return (
     <div className="sm:hidden flex">
@@ -64,7 +65,7 @@ function NavMobile({ activeSection }: HeaderProps) {
             </Dialog.Title>
             <nav className="flex flex-col items-center gap-8">
               {SECTION_LIST.map(({ id, name }) => {
-                const isSelected = activeSection === id;
+                const isSelected = activeSection === id
                 return (
                   <a
                     key={id}
@@ -76,23 +77,23 @@ function NavMobile({ activeSection }: HeaderProps) {
                       {
                         'after:w-3/4 text-blue-800 dark:text-blue-400': isSelected,
                         'after:w-0': !isSelected,
-                      },
+                      }
                     )}
                   >
                     <Text>{name}</Text>
                   </a>
-                );
+                )
               })}
             </nav>
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
     </div>
-  );
+  )
 }
 
 export function Header({ activeSection }: HeaderProps) {
-  const { scrollPosition } = useScrollPosition();
+  const { scrollPosition } = useScrollPosition()
 
   return (
     <header
@@ -122,5 +123,5 @@ export function Header({ activeSection }: HeaderProps) {
         </div>
       </nav>
     </header>
-  );
+  )
 }

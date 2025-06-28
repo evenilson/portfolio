@@ -1,1 +1,1 @@
-export type ColorBadgeKeys = keyof typeof colorBadgeClasses;
+export type ColorBadgeKeys = keyof typeof colorBadgeClasses

@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
-import * as TooltipRadix from '@radix-ui/react-tooltip';
+import * as TooltipRadix from '@radix-ui/react-tooltip'
+import { ReactNode } from 'react'
 
 interface TooltipProps {
-  children: ReactNode;
-  tooltip: JSX.Element | string;
+  children: ReactNode
+  tooltip: JSX.Element | string
 }
 
 export function Tooltip({ children, tooltip }: TooltipProps) {
@@ -28,5 +28,5 @@ export function Tooltip({ children, tooltip }: TooltipProps) {
         </TooltipRadix.Portal>
       </TooltipRadix.Root>
     </TooltipRadix.Provider>
-  );
+  )
 }
