@@ -40,7 +40,7 @@ function App() {
   const activeSection = useActiveSection(sectionRefs) ?? '';
 
   const { data: devToPostList } = useQuery({
-    queryKey: ['todos'],
+    queryKey: ['dev-to-post-list'],
     queryFn: GetDevToPosts,
     refetchOnWindowFocus: false,
   });
@@ -66,10 +66,11 @@ function App() {
               <TypeWriter />
             </Text>
             <Text className="font-light block max-w-[30rem] leading-8" size="md">
-              Iniciei na programação aos meus 15 anos, onde tive os primeiros contatos com a lógica
-              de programação, além de HTML e CSS. Após isso, comecei a utilizar o React.js,
-              utilizando conceitos importantes no desenvolvimento de interfaces. Contudo, sempre
-              mantive uma paixão por UX e UI, onde pude contribuir em alguns projetos.
+              Desenvolvedor Front-end com foco em React, Next.js e Vue.js, graduado em Sistemas de
+              Informação pela UFC. Com mais de 5 anos de experiência, atuo no desenvolvimento de
+              interfaces modernas, acessíveis e centradas no usuário. Apaixonado por tecnologia,
+              comecei a programar aos 15 anos e, hoje, uno design e código para entregar soluções
+              completas, com forte foco em performance, UX e escalabilidade.
             </Text>
             <Button
               className="w-max flex items-center gap-2 mt-8"
