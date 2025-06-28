@@ -5,6 +5,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import tailwindcss from 'eslint-plugin-tailwindcss';
 import prettierPlugin from 'eslint-plugin-prettier';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 export default [
   {
@@ -35,6 +36,7 @@ export default [
       'jsx-a11y': jsxA11y,
       tailwindcss,
       prettier: prettierPlugin,
+      'simple-import-sort': simpleImportSort
     },
     rules: {
       // TypeScript
@@ -61,6 +63,10 @@ export default [
 
       // Prettier
       'prettier/prettier': ['warn'],
+
+      // Simple Import Sort
+      'simple-import-sort/imports': 'warn',
+      'simple-import-sort/exports': 'warn'
     }
   }
 ]

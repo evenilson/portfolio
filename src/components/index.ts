@@ -1,7 +1,8 @@
-export { Header } from './Header';
-export { SectionCard } from './SectionCard';
-export { SocialMediasArea } from './SocialMediasArea';
-export { ThemeSwitcher } from './ThemeSwitcher';
-export { TypeWriter } from './Typewriter';
-export { Stars } from './Stars';
-export { ProjectCard } from './ProjectCard';
+export { ArticleCard } from './ArticleCard'
+export { Header } from './Header'
+export { ProjectCard } from './ProjectCard'
+export { SectionCard } from './SectionCard'
+export { SocialMediasArea } from './SocialMediasArea'
+export { Stars } from './Stars'
+export { ThemeSwitcher } from './ThemeSwitcher'
+export { TypeWriter } from './Typewriter'

@@ -6,14 +6,14 @@ export const ABOUT_ME_LIST = [
   'solucionador de bugs',
   'fã de animações',
   'defensor da A11Y',
-];
+]
 
 export const SECTION_LIST = Object.freeze([
   { id: 'home', name: 'Início' },
   { id: 'skills', name: 'Habilidades' },
   { id: 'projects', name: 'Projetos' },
   { id: 'articles', name: 'Artigos' },
-]);
+])
 
 export const colorBadgeClasses = Object.freeze({
   red: {
@@ -66,4 +66,4 @@ export const colorBadgeClasses = Object.freeze({
     border: 'border-blue-500 border-opacity-75',
     text: 'text-blue-500 text-opacity-75',
   },
-});
+})

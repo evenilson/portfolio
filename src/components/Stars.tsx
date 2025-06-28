@@ -1,12 +1,12 @@
-import { Star, StarHalf } from 'phosphor-react';
+import { Star, StarHalf } from 'phosphor-react'
 
 interface StarsProps {
-  name: string;
-  starsNumber: number;
+  name: string
+  starsNumber: number
 }
 
 export function Stars({ name, starsNumber }: StarsProps) {
-  const hasHalfStar = !Number.isInteger(starsNumber);
+  const hasHalfStar = !Number.isInteger(starsNumber)
   return (
     <>
       {hasHalfStar && (
@@ -24,8 +24,8 @@ export function Stars({ name, starsNumber }: StarsProps) {
               className="text-orange-800 animated"
               weight="fill"
             />
-          );
+          )
         })}
     </>
-  );
+  )
 }

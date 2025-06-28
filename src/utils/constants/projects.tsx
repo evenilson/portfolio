@@ -1,12 +1,12 @@
-import { ProjectInterface } from '@/types/general';
-import logoPlataformaMaisInfancia from '@/assets/svgs/projects/logo-plataforma-mais-infancia.svg';
-import logoIntegraSocial from '@/assets/svgs/projects/logo-integra-social.svg';
-import logoAcessoCidadao from '@/assets/svgs/projects/logo-acesso-cidadao.svg';
-import logoBigDataSocial from '@/assets/svgs/projects/logo-big-data-social.svg';
-import logoObservai from '@/assets/svgs/projects/logo-observai.svg';
-import logoCearaLid from '@/assets/svgs/projects/logo-ceara-lid.svg';
-import logoSuite from '@/assets/svgs/projects/logo-suite.svg';
-import logoFacilitaMais from '@/assets/svgs/projects/logo-facilitamais.svg';
+import logoAcessoCidadao from '@/assets/svgs/projects/logo-acesso-cidadao.svg'
+import logoBigDataSocial from '@/assets/svgs/projects/logo-big-data-social.svg'
+import logoCearaLid from '@/assets/svgs/projects/logo-ceara-lid.svg'
+import logoFacilitaMais from '@/assets/svgs/projects/logo-facilitamais.svg'
+import logoIntegraSocial from '@/assets/svgs/projects/logo-integra-social.svg'
+import logoObservai from '@/assets/svgs/projects/logo-observai.svg'
+import logoPlataformaMaisInfancia from '@/assets/svgs/projects/logo-plataforma-mais-infancia.svg'
+import logoSuite from '@/assets/svgs/projects/logo-suite.svg'
+import { ProjectInterface } from '@/types/general'
 
 export const PROJECTS: ProjectInterface[] = [
   {
@@ -157,4 +157,4 @@ export const PROJECTS: ProjectInterface[] = [
       'Responsável pela criação do MVP da plataforma, atuando desde a prototipação até o desenvolvimento do frontend e o deployment da aplicação. O projeto foi conduzido em um curto prazo, com foco na entrega ágil e eficiente de uma solução funcional.',
     image: logoFacilitaMais,
   },
-];
+]

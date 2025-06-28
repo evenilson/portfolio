@@ -1,36 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 interface UseThemeProvider {
-  colorTheme: 'light' | 'dark';
-  setTheme: (state: 'light' | 'dark') => void;
+  colorTheme: 'light' | 'dark'
+  setTheme: (state: 'light' | 'dark') => void
 }
 
 export function useTheme(): UseThemeProvider {
   const getInitialTheme = (): 'light' | 'dark' => {
-    const storedTheme = localStorage.getItem('@theme-portfolio');
+    const storedTheme = localStorage.getItem('@theme-portfolio')
     if (storedTheme === 'light' || storedTheme === 'dark') {
-      return storedTheme;
+      return storedTheme
     }
 
-    const prefersDark = window.matchMedia('(prefers-color-scheme:dark)').matches;
+    const prefersDark = window.matchMedia('(prefers-color-scheme:dark)').matches
 
-    return prefersDark ? 'dark' : 'light';
-  };
+    return prefersDark ? 'dark' : 'light'
+  }
 
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => getInitialTheme());
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => getInitialTheme())
 
-  const colorTheme = theme === 'dark' ? 'light' : 'dark';
+  const colorTheme = theme === 'dark' ? 'light' : 'dark'
 
   useEffect(() => {
-    const root = window.document.documentElement;
+    const root = window.document.documentElement
 
     if (theme === 'dark') {
-      root.classList.add('dark');
+      root.classList.add('dark')
     } else {
-      root.classList.remove('dark');
+      root.classList.remove('dark')
     }
-    localStorage.setItem('@theme-portfolio', theme);
-  }, [theme]);
+    localStorage.setItem('@theme-portfolio', theme)
+  }, [theme])
 
-  return { colorTheme, setTheme };
+  return { colorTheme, setTheme }
 }

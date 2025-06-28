@@ -1,13 +1,15 @@
-import { GetDevToPostsResponse } from '@/types/general';
-import { Badge, Heading, Text } from './ui';
-import { BookIcon, CalendarDotIcon } from '@phosphor-icons/react';
+import { BookIcon, CalendarDotIcon } from '@phosphor-icons/react'
+
+import { GetDevToPostsResponse } from '@/types/general'
+
+import { Badge, Heading, Text } from './ui'
 
 type ArticleCardProps = {
-  article: GetDevToPostsResponse;
-};
+  article: GetDevToPostsResponse
+}
 
 export function ArticleCard({ article }: ArticleCardProps) {
-  const { title, description, url, publishedAt, tags, readingTime } = article;
+  const { title, description, url, publishedAt, tags, readingTime } = article
 
   return (
     <article className="p-4 border border-blue-600/20 dark:border-blue-600/10 rounded-br-2xl rounded-tl-2xl shadow-sm hover:shadow-md transition-shadow w-full">
@@ -46,5 +48,5 @@ export function ArticleCard({ article }: ArticleCardProps) {
         </div>
       </div>
     </article>
-  );
+  )
 }
