@@ -34,7 +34,7 @@ export function SocialMediasArea() {
   return (
     <div
       className="
-      fixed left-8 bottom-6 hidden md:flex gap-5 dark:bg-black-400 bg-blue-100 py-2 px-3 rounded-full animated z-[99]"
+      fixed left-8 bottom-6 hidden md:flex gap-5 dark:bg-black-400 bg-blue-100 py-2 px-3 rounded-full z-[99]"
     >
       {SOCIAL_MEDIA_LIST.map(({ socialMedia, logo, href }) => {
         return (

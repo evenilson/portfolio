@@ -25,7 +25,7 @@ function NavDesktop({ activeSection }: HeaderProps) {
             href={`#${id}`}
             className={clsx(
               'relative after:absolute hover:after:w-3/4 after:h-[.2rem] after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:rounded-full after:bg-blue-800 after:dark:bg-blue-400 after:transition-width after:duration-300',
-              'hover:text-blue-800 hover:dark:text-blue-400 animated',
+              'hover:text-blue-800 hover:dark:text-blue-400',
               {
                 'after:w-3/4 text-blue-800 dark:text-blue-400': isSelected,
                 'after:w-0': !isSelected,
@@ -73,7 +73,7 @@ function NavMobile({ activeSection }: HeaderProps) {
                     onClick={() => setOpen(false)}
                     className={clsx(
                       'relative after:absolute hover:after:w-3/4 after:h-[.2rem] after:left-1/2 after:-translate-x-1/2 after:-bottom-1 after:rounded-full after:bg-blue-800 after:dark:bg-blue-400 after:transition-width after:duration-300',
-                      'hover:text-blue-800 hover:dark:text-blue-400 animated w-fit',
+                      'hover:text-blue-800 hover:dark:text-blue-400 w-fit',
                       {
                         'after:w-3/4 text-blue-800 dark:text-blue-400': isSelected,
                         'after:w-0': !isSelected,

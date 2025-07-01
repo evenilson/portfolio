@@ -4,16 +4,16 @@ import { useMemo, useRef } from 'react'
 
 import {
   ArticleCard,
+  HardSkillCard,
   Header,
   ProjectCard,
+  ScrollReveal,
   SectionCard,
   SocialMediasArea,
-  Stars,
   TypeWriter,
 } from '@/components'
 import { SKILLS } from '@/utils/constants/skills'
 
-import cv from './assets/CV - EVENILSON.pdf'
 import evenilsonImg from './assets/img/evenilson.png'
 import { Button, Heading, Text } from './components/ui'
 import { useActiveSection } from './hooks'
@@ -73,13 +73,18 @@ function App() {
             </Text>
             <Button
               className="w-max flex items-center gap-2 mt-8"
-              onClick={() => window.open(cv, '_blank')}
+              onClick={() =>
+                window.open(
+                  'https://drive.google.com/file/d/151Ot9fxdbaKfFh87k-KrWZfs27mFm4tx/view?usp=sharing',
+                  '_blank'
+                )
+              }
             >
               <Text className="uppercase items-center pt-1">ver curriculo</Text>
               <FilePdf size={20} />
             </Button>
           </div>
-          <img src={evenilsonImg} alt="Imagem Evenilson" className="w-96 animated " />
+          <img src={evenilsonImg} alt="Imagem Evenilson" className="w-96" />
         </section>
         <SectionCard
           title="Habilidades"
@@ -88,75 +93,48 @@ function App() {
           isActive={activeSection === 'skills'}
         >
           <div className="pt-10 grid grid-cols-1 justify-items-center md:justify-items-start md:grid-cols-2 gap-10">
-            <div className="max-w-[30rem] w-full animated">
+            <div className="max-w-[30rem] w-full">
               <Heading size="sm" className="uppercase font-light mb-2">
                 Linguagens
               </Heading>
-              {SKILLS.hardSkills.languages.map(({ name, stars, icon }) => {
-                return (
-                  <div key={name} className="flex items-center justify-between animated">
-                    <div className="flex items-center gap-4">
-                      {icon}
-                      <p>{name}</p>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Stars name={name} starsNumber={stars} />
-                    </div>
-                  </div>
-                )
-              })}
+              {SKILLS.hardSkills.languages.map(({ name, stars, icon }, index) => (
+                <HardSkillCard name={name} stars={stars} icon={icon} index={index + 1} />
+              ))}
             </div>
-            <div className="max-w-[30rem] w-full animated">
+            <div className="max-w-[30rem] w-full">
               <Heading size="sm" className="uppercase font-light mb-2">
                 Frameworks, Bibliotecas e outros
               </Heading>
-              {SKILLS.hardSkills.frameworks.map(({ name, stars, icon }) => {
-                return (
-                  <div key={name} className="flex items-center justify-between animated">
-                    <div className="flex items-center gap-4">
-                      {icon}
-                      <p>{name}</p>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Stars name={name} starsNumber={stars} />
-                    </div>
-                  </div>
-                )
-              })}
+              {SKILLS.hardSkills.frameworks.map(({ name, stars, icon }, index) => (
+                <HardSkillCard name={name} stars={stars} icon={icon} index={index + 1} />
+              ))}
             </div>
-            <div className="max-w-[30rem] w-full animated">
-              <Heading size="sm" className="uppercase font-light mb-2">
-                Padrões e outros
-              </Heading>
-              {SKILLS.hardSkills.patterns.map(({ name, stars, icon }) => {
-                return (
-                  <div key={name} className="flex items-center justify-between animated">
-                    <div className="flex items-center gap-4">
-                      {icon}
-                      <p>{name}</p>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Stars name={name} starsNumber={stars} />
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-            <div className="max-w-[30rem] w-full animated">
+
+            <ScrollReveal index={0}>
+              <div className="max-w-[30rem] w-full">
+                <Heading size="sm" className="uppercase font-light mb-2">
+                  Padrões e outros
+                </Heading>
+                {SKILLS.hardSkills.patterns.map(({ name, stars, icon }, index) => (
+                  <HardSkillCard name={name} stars={stars} icon={icon} index={index + 1} />
+                ))}
+              </div>
+            </ScrollReveal>
+            <div className="max-w-[30rem] w-full">
               <Heading size="sm" className="uppercase font-light mb-6">
                 Sociais
               </Heading>
               <div className="space-y-6">
-                {SKILLS.softSkills.items.map((softSkill) => {
-                  return (
-                    <div key={softSkill} className="flex items-center justify-between animated">
+                {SKILLS.softSkills.items.map((softSkill, index) => (
+                  <ScrollReveal key={softSkill} index={index}>
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
                         {SKILLS.softSkills.icon}
                         <p>{softSkill}</p>
                       </div>
                     </div>
-                  )
-                })}
+                  </ScrollReveal>
+                ))}
               </div>
             </div>
           </div>
@@ -168,19 +146,20 @@ function App() {
           isActive={activeSection === 'projects'}
         >
           <div className="flex gap-8 my-10 flex-wrap justify-center">
-            {PROJECTS.map(({ id, title, description, image, url, badges, myContributions }) => {
-              return (
-                <ProjectCard
-                  key={id}
-                  title={title}
-                  description={description}
-                  image={image}
-                  url={url}
-                  badges={badges}
-                  myContributions={myContributions}
-                />
+            {PROJECTS.map(
+              ({ id, title, description, image, url, badges, myContributions }, index) => (
+                <ScrollReveal key={id} index={index}>
+                  <ProjectCard
+                    title={title}
+                    description={description}
+                    image={image}
+                    url={url}
+                    badges={badges}
+                    myContributions={myContributions}
+                  />
+                </ScrollReveal>
               )
-            })}
+            )}
           </div>
         </SectionCard>
         <SectionCard
@@ -190,9 +169,11 @@ function App() {
           isActive={activeSection === 'articles'}
         >
           <div className="flex flex-col items-center justify-center my-10 gap-8">
-            {devToPostList?.map((article) => {
-              return <ArticleCard article={article} key={article.id} />
-            })}
+            {devToPostList?.map((article, index) => (
+              <ScrollReveal key={article.id} index={index} className="w-full">
+                <ArticleCard article={article} />
+              </ScrollReveal>
+            ))}
           </div>
         </SectionCard>
       </main>
