@@ -10,9 +10,9 @@ export function TypeWriter() {
 
   return (
     <>
-      <span className="text-6xl">{displayed}</span>
+      <span className="text-4xl sm:text-6xl">{displayed}</span>
       {
-        <div className="max-h-full h-14 w-1 ml-4 bg-blue-800 dark:bg-blue-400 inline-block animate-pulseFull"></div>
+        <div className="max-h-full h-8 sm:h-14 w-1 ml-4 bg-blue-800 dark:bg-blue-400 inline-block animate-pulseFull"></div>
       }
     </>
   )

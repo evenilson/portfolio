@@ -11,7 +11,7 @@ export function Stars({ name, starsNumber }: StarsProps) {
     <>
       {hasHalfStar && (
         <div className="inline-block -scale-x-100">
-          <StarHalf size={15} className="text-orange-800 animated" weight="fill" />
+          <StarHalf size={15} className="text-orange-800" weight="fill" />
         </div>
       )}
       {Array(Math.floor(starsNumber))
@@ -21,7 +21,7 @@ export function Stars({ name, starsNumber }: StarsProps) {
             <Star
               key={`${name}-star-${starIdx}`}
               size={15}
-              className="text-orange-800 animated"
+              className="text-orange-800"
               weight="fill"
             />
           )
