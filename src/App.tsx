@@ -55,11 +55,14 @@ function App() {
           ref={homeRef}
         >
           <div>
-            <Text className="text-[2rem] font-light block leading-none" size="none">
+            <Text
+              className="text-[1.5rem] sm:text-[2rem] font-light block leading-none"
+              size="none"
+            >
               Olá, eu sou
             </Text>
             <Text
-              className="font-mono text-[4rem] font-bold block tracking-tight w-fit my-4"
+              className="font-mono font-bold block tracking-tight w-fit mt-2 sm:mt-4 mb-4 sm:mb-8"
               size="none"
             >
               <TypeWriter />
@@ -75,7 +78,7 @@ function App() {
               className="w-max flex items-center gap-2 mt-8"
               onClick={() =>
                 window.open(
-                  'https://drive.google.com/file/d/151Ot9fxdbaKfFh87k-KrWZfs27mFm4tx/view?usp=sharing',
+                  'https://drive.google.com/file/d/1YrIIPXcync65i3GpWqdyGCZENWM7BkUl/view?usp=sharing',
                   '_blank'
                 )
               }
@@ -84,7 +87,7 @@ function App() {
               <FilePdf size={20} />
             </Button>
           </div>
-          <img src={evenilsonImg} alt="Imagem Evenilson" className="w-96" />
+          <img src={evenilsonImg} alt="Imagem Evenilson" className="w-72 my-4 sm:w-96" />
         </section>
         <SectionCard
           title="Habilidades"
@@ -98,7 +101,7 @@ function App() {
                 Linguagens
               </Heading>
               {SKILLS.hardSkills.languages.map(({ name, stars, icon }, index) => (
-                <HardSkillCard name={name} stars={stars} icon={icon} index={index + 1} />
+                <HardSkillCard key={name} name={name} stars={stars} icon={icon} index={index + 1} />
               ))}
             </div>
             <div className="max-w-[30rem] w-full">
@@ -106,20 +109,19 @@ function App() {
                 Frameworks, Bibliotecas e outros
               </Heading>
               {SKILLS.hardSkills.frameworks.map(({ name, stars, icon }, index) => (
-                <HardSkillCard name={name} stars={stars} icon={icon} index={index + 1} />
+                <HardSkillCard key={name} name={name} stars={stars} icon={icon} index={index + 1} />
               ))}
             </div>
 
-            <ScrollReveal index={0}>
-              <div className="max-w-[30rem] w-full">
-                <Heading size="sm" className="uppercase font-light mb-2">
-                  Padrões e outros
-                </Heading>
-                {SKILLS.hardSkills.patterns.map(({ name, stars, icon }, index) => (
-                  <HardSkillCard name={name} stars={stars} icon={icon} index={index + 1} />
-                ))}
-              </div>
-            </ScrollReveal>
+            <div className="max-w-[30rem] w-full">
+              <Heading size="sm" className="uppercase font-light mb-2">
+                Padrões e outros
+              </Heading>
+              {SKILLS.hardSkills.patterns.map(({ name, stars, icon }, index) => (
+                <HardSkillCard key={name} name={name} stars={stars} icon={icon} index={index} />
+              ))}
+            </div>
+
             <div className="max-w-[30rem] w-full">
               <Heading size="sm" className="uppercase font-light mb-6">
                 Sociais
