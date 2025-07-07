@@ -98,7 +98,8 @@ export function Header({ activeSection }: HeaderProps) {
   return (
     <header
       className={clsx('sticky top-0 z-10 px-2 sm:px-3 md:px-4 lg:px-5 xl:px-6 2xl:px-7', {
-        'dark:bg-black-600 dark:shadow-none shadow-sm bg-white-400': scrollPosition > 0,
+        'dark:bg-black-600/75 bg-white-400/75 backdrop-blur dark:shadow-none shadow-sm':
+          scrollPosition > 0,
       })}
     >
       <nav className="w-full py-5 my-0 mx-auto flex items-center justify-between max-w-5xl">
