@@ -1,11 +1,8 @@
-import { Gradient } from 'phosphor-react';
+import { Gradient } from 'phosphor-react'
 
 /** @type {import('tailwindcss').Config} */
-export const content = [
-  './src/**/*.tsx',
-  './index.html'
-];
-export const darkMode = "class";
+export const content = ['./src/**/*.tsx', './index.html']
+export const darkMode = 'class'
 export const theme = {
   extend: {
     colors: {
@@ -19,51 +16,51 @@ export const theme = {
         400: '#F0F5F6',
         600: '#E0ECEE',
         700: '#D2DDDF',
-        800: '#C4CED0'
+        800: '#C4CED0',
       },
       blue: {
         100: '#d9f0f5',
         400: '#54D6F2',
         600: '#3ABBD8',
         700: '#2995AD',
-        800: '#19778B'
+        800: '#19778B',
       },
       orange: {
         400: '#FBDAA3',
         600: '#F0C378',
         700: '#ECB254',
-        800: '#FCA311'
-      }
+        800: '#FCA311',
+      },
     },
     keyframes: {
       slideDownAndFade: {
         from: {
           opacity: 0,
-          transform: 'translateY(-2px)'
+          transform: 'translateY(-2px)',
         },
         to: {
           opacity: 1,
-          transform: 'translateY(0)'
+          transform: 'translateY(0)',
         },
       },
       slideLeftAndFade: {
         from: {
           opacity: 0,
-          transform: 'translateX(2px)'
+          transform: 'translateX(2px)',
         },
         to: {
           opacity: 1,
-          transform: 'translateX(0)'
+          transform: 'translateX(0)',
         },
       },
       slideUpAndFade: {
         from: {
           opacity: 0,
-          transform: 'translateY(2px)'
+          transform: 'translateY(2px)',
         },
         to: {
           opacity: 1,
-          transform: 'translateY(0)'
+          transform: 'translateY(0)',
         },
       },
       downSize: {
@@ -93,14 +90,15 @@ export const theme = {
     },
     transitionProperty: {
       width: 'width',
-      scale: ['scale', 'opacity']
-    }
+      scale: ['scale', 'opacity'],
+    },
   },
   fontFamily: {
     sans: ['"Comfortaa"', 'cursive'],
-    mono: ['"Caveat"', 'mono']
-  }
-};
+    mono: ['"Caveat"', 'mono'],
+    code: ['"Google Sans Code"', 'mono'],
+  },
+}
 export const safelist = [
   // Cores bg
   'bg-red-500',
@@ -146,5 +144,5 @@ export const safelist = [
 
   // Opacidade de texto
   'text-opacity-75',
-];
-export const plugins = [];
+]
+export const plugins = []
