@@ -45,6 +45,12 @@ function App() {
     refetchOnWindowFocus: false,
   })
 
+  const greeting = useMemo(() => {
+    const hours = new Date().getHours()
+
+    return hours < 12 ? 'Bom dia' : hours < 18 ? 'Boa tarde' : 'Boa noite'
+  }, [])
+
   return (
     <>
       <Header activeSection={activeSection} />
@@ -63,7 +69,7 @@ function App() {
               className="text-[1.5rem] sm:text-[2rem] font-light block leading-none"
               size="none"
             >
-              Olá, eu sou
+              {greeting}, eu sou
             </Text>
             <Text
               className="font-mono font-bold block tracking-tight w-fit mt-2 sm:mt-4 mb-4 sm:mb-8"
