@@ -138,29 +138,20 @@ portfolio/
 
 ## 🚀 Deployment
 
-This portfolio is deployed on **GitHub Pages** and automatically builds from the main branch.
+This portfolio is deployed on **GitHub Pages** and automatically builds on every push to the `master` branch via GitHub Actions.
 
 ### Deployment Process
 
-1. **Build the project**
-   ```bash
-   pnpm build
-   ```
-
-2. **Deploy to GitHub Pages**
-   ```bash
-   pnpm deploy
-   ```
-
-The deployment is configured in `package.json` with the following scripts:
-- `predeploy`: Runs build before deployment
-- `deploy`: Deploys to GitHub Pages using gh-pages
+1. Push changes to the `master` branch.
+2. GitHub Actions runs the workflow in `.github/workflows/deploy-pages.yml`.
+3. The app is built and published to GitHub Pages.
 
 ### Configuration
 
 - **Base URL**: Configured for GitHub Pages (`/portfolio/`)
 - **Build Output**: `dist/` directory
-- **Branch**: `gh-pages` branch (automatically created)
+- **Workflow**: `.github/workflows/deploy-pages.yml`
+- **Trigger**: Push to `master` and manual `workflow_dispatch`
 
 ## 🧪 Testing
 
