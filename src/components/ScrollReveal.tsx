@@ -2,7 +2,7 @@ import clsx from 'clsx'
 
 import { useScrollReveal } from '@/hooks'
 
-interface ScrollRevealProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
+interface ScrollRevealProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
   index: number
   once?: boolean
@@ -17,10 +17,10 @@ export function ScrollReveal({
 }: ScrollRevealProps) {
   const { isVisible, ref } = useScrollReveal(once)
 
-  const prefersReduceMotion =
-    typeof window !== undefined && window.matchMedia('(prefers-reduced-motion: reduce').matches
+  const prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-  const delayMs = prefersReduceMotion ? 0 : index * 100
+  const delayMs = prefersReducedMotion ? 0 : index * 100
 
   return (
     <div
@@ -31,7 +31,7 @@ export function ScrollReveal({
       className={clsx(
         'transition-all duration-700 ease-out transform',
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
-        prefersReduceMotion && 'transition-none',
+        prefersReducedMotion && 'transition-none',
         className
       )}
       {...rest}

@@ -45,6 +45,6 @@ describe('Button', () => {
     render(<Button className="extra-class">Classes</Button>)
     const btn = screen.getByRole('button')
     expect(btn.className).toContain('extra-class')
-    expect(btn.className).toContain('bg-blue-400')
+    expect(btn.className).toContain('bg-orange-400')
   })
 })

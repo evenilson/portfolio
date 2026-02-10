@@ -32,7 +32,7 @@ function App() {
       home: homeRef,
       skills: skillsRef,
       projects: projectsRef,
-      articlesRef: articlesRef,
+      articles: articlesRef,
     }),
     []
   )
@@ -97,7 +97,11 @@ function App() {
               <FilePdf size={20} />
             </Button>
           </div>
-          <img src={evenilsonImg} alt="Imagem Evenilson" className="w-72 my-4 sm:w-96" />
+          <img
+            src={evenilsonImg}
+            alt="Imagem Evenilson"
+            className="w-72 my-4 sm:w-96 animate-[bounce_10s_ease-in-out_infinite]"
+          />
         </section>
         <SectionCard
           title="Habilidades"

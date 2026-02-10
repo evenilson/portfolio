@@ -46,8 +46,10 @@ function NavMobile({ activeSection }: HeaderProps) {
   return (
     <div className="sm:hidden flex">
       <Dialog.Root open={open} onOpenChange={setOpen}>
-        <Dialog.Trigger>
-          <List size={24} />
+        <Dialog.Trigger asChild>
+          <button type="button" aria-label="Abrir menu">
+            <List size={24} />
+          </button>
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 dark:bg-white-800/15 bg-black-800/15 backdrop-blur-sm z-40" />
@@ -57,8 +59,8 @@ function NavMobile({ activeSection }: HeaderProps) {
                 <img src={logoPortifolio} alt="Logo Portfólio" className="w-10 h-10" />
                 <Text className="font-bold">Menu</Text>
               </div>
-              <Dialog.Close>
-                <button>
+              <Dialog.Close asChild>
+                <button type="button" aria-label="Fechar menu">
                   <X size={24} />
                 </button>
               </Dialog.Close>
@@ -110,7 +112,7 @@ export function Header({ activeSection }: HeaderProps) {
         <NavDesktop activeSection={activeSection} />
         <div className="flex items-center gap-3">
           <Button className="w-fit flex items-center justify-center px-1 sm:px-4 gap-2" asChild>
-            <a href="mailto:evenilsonlp@gmail.com" target="__blank" aria-label="Entrar em contato">
+            <a href="mailto:evenilsonlp@gmail.com" aria-label="Entrar em contato">
               <Text className="hidden sm:block uppercase items-center pt-1">entrar em contato</Text>
               <Envelope size={20} />
             </a>

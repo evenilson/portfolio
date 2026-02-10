@@ -27,7 +27,10 @@ export function ProjectCard({
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="flex flex-col items-center max-w-[16rem] min-h-72 p-4 rounded-br-2xl rounded-tl-2xl shadow-sm hover:shadow-md transition-shadow border border-blue-600/30 dark:border-blue-600/15 hover:border-blue-600 dark:hover:border-blue-600">
+        <button
+          type="button"
+          className="flex flex-col items-center max-w-[16rem] min-h-72 p-4 rounded-br-2xl rounded-tl-2xl shadow-sm hover:shadow-md transition-shadow border border-blue-600/30 dark:border-blue-600/15 hover:border-blue-600 dark:hover:border-blue-600"
+        >
           <div className="flex flex-col items-center gap-4">
             <div className="w-24 h-24 p-4 flex items-center justify-center rounded-full shadow-md bg-white-600 dark:bg-black-700">
               <img src={image} alt={`Logo ${title}`} />
@@ -56,8 +59,8 @@ export function ProjectCard({
                 {title}
               </Heading>
             </div>
-            <Dialog.Close>
-              <button>
+            <Dialog.Close asChild>
+              <button type="button" aria-label="Fechar detalhes do projeto">
                 <X size={24} />
               </button>
             </Dialog.Close>

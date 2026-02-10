@@ -42,6 +42,7 @@ export function SocialMediasArea() {
             <a
               href={href}
               target="_blank"
+              rel="noopener noreferrer"
               aria-label={`${socialMedia} Logo`}
               className="rounded-full w-10 h-10 border-2 dark:border-orange-400 border-orange-800 flex justify-center items-center 
                  hover:opacity-90 hover:scale-90 transition-scale "
