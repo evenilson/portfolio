@@ -5,9 +5,10 @@ import { Envelope, List, X } from 'phosphor-react'
 import { useState } from 'react'
 
 import logoPortifolio from '@/assets/svgs/logo-portifolio.svg'
-import { ThemeSwitcher } from '@/components'
+import { LanguageSwitcher, ThemeSwitcher } from '@/components'
 import { Button, Text } from '@/components/ui'
 import { useScrollPosition } from '@/hooks'
+import { useI18n } from '@/i18n'
 import { SECTION_LIST } from '@/utils/constants/general'
 
 interface HeaderProps {
@@ -15,10 +16,13 @@ interface HeaderProps {
 }
 
 function NavDesktop({ activeSection }: HeaderProps) {
+  const { messages } = useI18n()
+
   return (
-    <div className="hidden sm:flex items-center justify-between gap-6">
-      {SECTION_LIST.map(({ id, name }) => {
+    <div className="hidden md:flex items-center justify-between gap-6">
+      {SECTION_LIST.map(({ id }) => {
         const isSelected = activeSection === id
+
         return (
           <a
             key={id}
@@ -32,7 +36,7 @@ function NavDesktop({ activeSection }: HeaderProps) {
               }
             )}
           >
-            <Text>{name}</Text>
+            <Text>{messages.navigation[id as keyof typeof messages.navigation]}</Text>
           </a>
         )
       })}
@@ -42,12 +46,13 @@ function NavDesktop({ activeSection }: HeaderProps) {
 
 function NavMobile({ activeSection }: HeaderProps) {
   const [open, setOpen] = useState(false)
+  const { messages } = useI18n()
 
   return (
-    <div className="sm:hidden flex">
+    <div className="md:hidden flex">
       <Dialog.Root open={open} onOpenChange={setOpen}>
         <Dialog.Trigger asChild>
-          <button type="button" aria-label="Abrir menu">
+          <button type="button" aria-label={messages.header.openMenuAria}>
             <List size={24} />
           </button>
         </Dialog.Trigger>
@@ -56,18 +61,19 @@ function NavMobile({ activeSection }: HeaderProps) {
           <Dialog.Content className="fixed top-0 left-0 z-50 h-full w-full max-w-80 shadow-lg bg-white-400 text-black-800 dark:text-white-400 dark:bg-black-800">
             <Dialog.Title className="flex items-center justify-between mb-6 p-2">
               <div className="flex gap-2 items-center">
-                <img src={logoPortifolio} alt="Logo Portfólio" className="w-10 h-10" />
-                <Text className="font-bold">Menu</Text>
+                <img src={logoPortifolio} alt={messages.header.logoAlt} className="w-10 h-10" />
+                <Text className="font-bold">{messages.header.menuTitle}</Text>
               </div>
               <Dialog.Close asChild>
-                <button type="button" aria-label="Fechar menu">
+                <button type="button" aria-label={messages.header.closeMenuAria}>
                   <X size={24} />
                 </button>
               </Dialog.Close>
             </Dialog.Title>
             <nav className="flex flex-col items-center gap-8">
-              {SECTION_LIST.map(({ id, name }) => {
+              {SECTION_LIST.map(({ id }) => {
                 const isSelected = activeSection === id
+
                 return (
                   <a
                     key={id}
@@ -82,7 +88,7 @@ function NavMobile({ activeSection }: HeaderProps) {
                       }
                     )}
                   >
-                    <Text>{name}</Text>
+                    <Text>{messages.navigation[id as keyof typeof messages.navigation]}</Text>
                   </a>
                 )
               })}
@@ -96,6 +102,7 @@ function NavMobile({ activeSection }: HeaderProps) {
 
 export function Header({ activeSection }: HeaderProps) {
   const { scrollPosition } = useScrollPosition()
+  const { messages } = useI18n()
 
   return (
     <header
@@ -106,17 +113,25 @@ export function Header({ activeSection }: HeaderProps) {
     >
       <nav className="w-full py-5 my-0 mx-auto flex items-center justify-between max-w-5xl">
         <div className="flex gap-2">
-          <img src={logoPortifolio} alt="Logo Portfólio" className="w-10 h-10" />
+          <img src={logoPortifolio} alt={messages.header.logoAlt} className="w-10 h-10" />
           <NavMobile activeSection={activeSection} />
         </div>
         <NavDesktop activeSection={activeSection} />
         <div className="flex items-center gap-3">
           <Button className="w-fit flex items-center justify-center px-1 sm:px-4 gap-2" asChild>
-            <a href="mailto:evenilsonlp@gmail.com" aria-label="Entrar em contato">
-              <Text className="hidden sm:block uppercase items-center pt-1">entrar em contato</Text>
+            <a href="mailto:evenilsonlp@gmail.com" aria-label={messages.header.contactAria}>
+              <Text className="hidden sm:block uppercase items-center pt-1">
+                {messages.header.contactButton}
+              </Text>
               <Envelope size={20} />
             </a>
           </Button>
+          <Separator.Root
+            className="bg-black-400 dark:bg-white-800 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-5 data-[orientation=vertical]:w-px"
+            decorative
+            orientation="vertical"
+          />
+          <LanguageSwitcher />
           <Separator.Root
             className="bg-black-400 dark:bg-white-800 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-5 data-[orientation=vertical]:w-px"
             decorative

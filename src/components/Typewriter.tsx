@@ -1,9 +1,11 @@
 import { useTypeWriter } from '@/hooks'
-import { ABOUT_ME_LIST } from '@/utils/constants/general'
+import { useI18n } from '@/i18n'
 
 export function TypeWriter() {
+  const { messages } = useI18n()
+
   const displayed = useTypeWriter({
-    texts: ABOUT_ME_LIST,
+    texts: messages.typewriter,
     writeSpeed: 50,
     loop: true,
   })
