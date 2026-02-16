@@ -153,6 +153,20 @@ This portfolio is deployed on **GitHub Pages** and automatically builds on every
 - **Workflow**: `.github/workflows/deploy-pages.yml`
 - **Trigger**: Push to `master` and manual `workflow_dispatch`
 
+### Required GitHub Secrets
+
+The deploy workflow reads the following build-time variables from GitHub Secrets:
+
+- `VITE_GA_ID`
+- `VITE_FIREBASE_API_KEY`
+- `VITE_FIREBASE_AUTH_DOMAIN`
+- `VITE_FIREBASE_PROJECT_ID`
+- `VITE_FIREBASE_STORAGE_BUCKET`
+- `VITE_FIREBASE_MESSAGING_SENDER_ID`
+- `VITE_FIREBASE_APP_ID`
+
+Without these values, the production bundle is generated with empty Firebase config and Firestore calls fail at runtime.
+
 ## 🧪 Testing
 
 The project includes comprehensive testing setup:
