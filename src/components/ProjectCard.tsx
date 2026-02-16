@@ -2,6 +2,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'phosphor-react'
 import { useMemo } from 'react'
 
+import { useI18n } from '@/i18n'
 import { ProjectInterface } from '@/types/general'
 
 import { Badge, Heading, Text } from './ui'
@@ -16,6 +17,8 @@ export function ProjectCard({
   badges,
   myContributions,
 }: ProjectCardProps) {
+  const { messages } = useI18n()
+
   const firstThreeBadges = useMemo(() => {
     return badges.slice(0, 3)
   }, [badges])
@@ -60,14 +63,14 @@ export function ProjectCard({
               </Heading>
             </div>
             <Dialog.Close asChild>
-              <button type="button" aria-label="Fechar detalhes do projeto">
+              <button type="button" aria-label={messages.projectCard.closeAria}>
                 <X size={24} />
               </button>
             </Dialog.Close>
           </Dialog.Title>
           <div className="p-8 space-y-8">
             <div className="flex flex-col gap-2">
-              <Text className="font-extrabold">Tecnologias utillizadas</Text>
+              <Text className="font-extrabold">{messages.projectCard.technologiesTitle}</Text>
               <div className="flex flex-wrap gap-2">
                 {badges.map(({ name, color }) => (
                   <Badge key={name} color={color}>
@@ -77,15 +80,15 @@ export function ProjectCard({
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <Text className="font-extrabold">Sobre a aplicação</Text>
+              <Text className="font-extrabold">{messages.projectCard.aboutApplicationTitle}</Text>
               <Text size="sm">{description}</Text>
             </div>
             <div className="flex flex-col gap-2">
-              <Text className="font-extrabold">Minhas contribuições</Text>
+              <Text className="font-extrabold">{messages.projectCard.contributionsTitle}</Text>
               <Text size="sm">{myContributions}</Text>
             </div>
             <div className="flex flex-col gap-2">
-              <Text className="font-extrabold">Acesse à aplicação</Text>
+              <Text className="font-extrabold">{messages.projectCard.accessApplicationTitle}</Text>
               <a
                 href={url}
                 target="_blank"

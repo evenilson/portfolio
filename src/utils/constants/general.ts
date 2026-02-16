@@ -1,18 +1,8 @@
-export const ABOUT_ME_LIST = [
-  'Evenilson Liandro',
-  'dev Front-end',
-  'esp. em React.js',
-  'apaixonado por UI/UX',
-  'solucionador de bugs',
-  'fã de animações',
-  'defensor da A11Y',
-]
-
 export const SECTION_LIST = Object.freeze([
-  { id: 'home', name: 'Início' },
-  { id: 'skills', name: 'Habilidades' },
-  { id: 'projects', name: 'Projetos' },
-  { id: 'articles', name: 'Artigos' },
+  { id: 'home' },
+  { id: 'skills' },
+  { id: 'projects' },
+  { id: 'articles' },
 ])
 
 export const colorBadgeClasses = Object.freeze({

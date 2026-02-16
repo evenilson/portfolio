@@ -13,15 +13,18 @@ import {
   TypeWriter,
   ViewCounter,
 } from '@/components'
+import { useI18n } from '@/i18n'
 import { SKILLS } from '@/utils/constants/skills'
 
 import evenilsonImg from './assets/img/evenilson.png'
 import { Button, Heading, Text } from './components/ui'
 import { useActiveSection } from './hooks'
 import { GetDevToPosts } from './services/getDevToPosts'
-import { PROJECTS } from './utils/constants/projects'
+import { getProjects } from './utils/constants/projects'
 
 function App() {
+  const { language, messages } = useI18n()
+
   const homeRef = useRef<HTMLElement | null>(null)
   const skillsRef = useRef<HTMLElement | null>(null)
   const projectsRef = useRef<HTMLElement | null>(null)
@@ -48,8 +51,18 @@ function App() {
   const greeting = useMemo(() => {
     const hours = new Date().getHours()
 
-    return hours < 12 ? 'Bom dia' : hours < 18 ? 'Boa tarde' : 'Boa noite'
-  }, [])
+    return hours < 12
+      ? messages.home.greetingMorning
+      : hours < 18
+        ? messages.home.greetingAfternoon
+        : messages.home.greetingEvening
+  }, [
+    messages.home.greetingAfternoon,
+    messages.home.greetingEvening,
+    messages.home.greetingMorning,
+  ])
+
+  const projects = useMemo(() => getProjects(language), [language])
 
   return (
     <>
@@ -69,7 +82,7 @@ function App() {
               className="text-[1.5rem] sm:text-[2rem] font-light block leading-none"
               size="none"
             >
-              {greeting}, eu sou
+              {greeting}, {messages.home.introSuffix}
             </Text>
             <Text
               className="font-mono font-bold block tracking-tight w-fit mt-2 sm:mt-4 mb-4 sm:mb-8"
@@ -78,11 +91,7 @@ function App() {
               <TypeWriter />
             </Text>
             <Text className="font-light block max-w-[30rem] leading-8" size="md">
-              Desenvolvedor Front-end com foco em React, Next.js e Vue.js, graduado em Sistemas de
-              Informação pela UFC. Com mais de 5 anos de experiência, atuo no desenvolvimento de
-              interfaces modernas, acessíveis e centradas no usuário. Apaixonado por tecnologia,
-              comecei a programar aos 15 anos e, hoje, uno design e código para entregar soluções
-              completas, com forte foco em performance, UX e escalabilidade.
+              {messages.home.aboutMe}
             </Text>
             <Button
               className="w-max flex items-center gap-2 mt-8"
@@ -93,18 +102,18 @@ function App() {
                 )
               }
             >
-              <Text className="uppercase items-center pt-1">ver curriculo</Text>
+              <Text className="uppercase items-center pt-1">{messages.home.resumeButton}</Text>
               <FilePdf size={20} />
             </Button>
           </div>
           <img
             src={evenilsonImg}
-            alt="Imagem Evenilson"
+            alt={messages.home.profileAlt}
             className="w-72 my-4 sm:w-96 animate-[bounce_10s_ease-in-out_infinite]"
           />
         </section>
         <SectionCard
-          title="Habilidades"
+          title={messages.sections.skills}
           id="skills"
           ref={skillsRef}
           isActive={activeSection === 'skills'}
@@ -112,7 +121,7 @@ function App() {
           <div className="pt-10 grid grid-cols-1 justify-items-center md:justify-items-start md:grid-cols-2 gap-10">
             <div className="max-w-[30rem] w-full">
               <Heading size="sm" className="uppercase font-light mb-2">
-                Linguagens
+                {messages.skills.languagesTitle}
               </Heading>
               {SKILLS.hardSkills.languages.map(({ name, stars, icon }, index) => (
                 <HardSkillCard key={name} name={name} stars={stars} icon={icon} index={index + 1} />
@@ -120,7 +129,7 @@ function App() {
             </div>
             <div className="max-w-[30rem] w-full">
               <Heading size="sm" className="uppercase font-light mb-2">
-                Frameworks, Bibliotecas e outros
+                {messages.skills.frameworksTitle}
               </Heading>
               {SKILLS.hardSkills.frameworks.map(({ name, stars, icon }, index) => (
                 <HardSkillCard key={name} name={name} stars={stars} icon={icon} index={index + 1} />
@@ -129,7 +138,7 @@ function App() {
 
             <div className="max-w-[30rem] w-full">
               <Heading size="sm" className="uppercase font-light mb-2">
-                Padrões e outros
+                {messages.skills.patternsTitle}
               </Heading>
               {SKILLS.hardSkills.patterns.map(({ name, stars, icon }, index) => (
                 <HardSkillCard key={name} name={name} stars={stars} icon={icon} index={index} />
@@ -138,10 +147,10 @@ function App() {
 
             <div className="max-w-[30rem] w-full">
               <Heading size="sm" className="uppercase font-light mb-6">
-                Sociais
+                {messages.skills.softSkillsTitle}
               </Heading>
               <div className="space-y-6">
-                {SKILLS.softSkills.items.map((softSkill, index) => (
+                {messages.skills.softSkillsItems.map((softSkill, index) => (
                   <ScrollReveal key={softSkill} index={index}>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
@@ -156,13 +165,13 @@ function App() {
           </div>
         </SectionCard>
         <SectionCard
-          title="Projetos"
+          title={messages.sections.projects}
           id="projects"
           ref={projectsRef}
           isActive={activeSection === 'projects'}
         >
           <div className="flex gap-8 my-10 flex-wrap justify-center">
-            {PROJECTS.map(
+            {projects.map(
               ({ id, title, description, image, url, badges, myContributions }, index) => (
                 <ScrollReveal key={id} index={index}>
                   <ProjectCard
@@ -179,7 +188,7 @@ function App() {
           </div>
         </SectionCard>
         <SectionCard
-          title="Artigos"
+          title={messages.sections.articles}
           id="articles"
           ref={articlesRef}
           isActive={activeSection === 'articles'}

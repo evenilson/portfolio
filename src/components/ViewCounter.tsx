@@ -1,6 +1,8 @@
 import { useCountUp, useTypeWriter, useViewCounter } from '@/hooks'
+import { useI18n } from '@/i18n'
 
 export function ViewCounter() {
+  const { messages } = useI18n()
   const { views, loading } = useViewCounter()
 
   const { value } = useCountUp({
@@ -25,7 +27,7 @@ export function ViewCounter() {
 
   return (
     <span className="opacity-25 text-xs md:text-base font-code select-none">
-      Contador de visitas: #{value.toString().padStart(5, '0')}
+      {messages.viewCounter.title}: #{value.toString().padStart(5, '0')}
     </span>
   )
 }

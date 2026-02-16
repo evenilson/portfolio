@@ -1,6 +1,7 @@
 export { ArticleCard } from './ArticleCard'
 export { HardSkillCard } from './HardSkillCard'
 export { Header } from './Header'
+export { LanguageSwitcher } from './LanguageSwitcher'
 export { ProjectCard } from './ProjectCard'
 export { ScrollReveal } from './ScrollReveal'
 export { SectionCard } from './SectionCard'
